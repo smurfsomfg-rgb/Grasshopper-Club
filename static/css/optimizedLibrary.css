@@ -1,0 +1,98 @@
+/* Estilos optimizados para la biblioteca de cartas */
+.card-library {
+    height: calc(90vh - 150px);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    will-change: transform;
+    contain: content;
+    position: relative;
+}
+
+.library-card {
+    contain: layout size;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: transform 0.2s ease-out;
+}
+
+.library-card img {
+    width: 100%;
+    height: auto;
+    contain: strict;
+    object-fit: cover;
+    will-change: transform;
+}
+
+/* Optimizaciones para scroll virtual */
+.card-library {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Loading state */
+.library-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffd700;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Optimizaciones para filtros */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    background: rgba(26,58,45,0.98);
+    z-index: 2;
+    backdrop-filter: blur(5px);
+}
+
+.filter-btn {
+    transform: translateZ(0);
+    will-change: background-color, transform;
+    transition: background-color 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* Optimizaciones para búsqueda */
+.search-container {
+    transform: translateZ(0);
+    will-change: transform;
+    contain: content;
+}
+
+.search-header input {
+    will-change: background-color;
+    transition: background-color 0.2s ease-out;
+}
+
+/* Prevenir parpadeo durante la carga */
+.card-library > * {
+    opacity: 0;
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

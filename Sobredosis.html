@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía: Pálida (cannabis) — Primeros auxilios</title>
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="position:fixed;top:18px;right:24px;z-index:9999;"></div>
+    <script type="text/javascript">
+    // Función que se llamará cuando el script de Google Translate se cargue
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,fr,de,it,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+        gaTrack: true,
+        gaId: 'UA-XXXXX-X'
+      }, 'google_translate_element');
+    }
+
+    function loadGoogleTranslate() {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(script);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadGoogleTranslate);
+    } else {
+      loadGoogleTranslate();
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0f1113;
+      --panel: #141618;
+      --accent: #27ae60;
+      --muted: #9aa5a1;
+      --glass: rgba(255,255,255,0.03);
+      --card: #191b1d;
+      --success: #10b981;
+      --warning: #f39c12;
+      --danger: #ef4444;
+      --soft: #e6eef9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #071014 0%, var(--bg) 100%);
+      color: var(--soft);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: linear-gradient(90deg, rgba(35,96,40,0.95), rgba(43,176,95,0.95));
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 6px 18px rgba(4,7,5,0.45);
+    }
+
+    .buttons-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: transparent;
+      color: #edf7ee;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: all .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      background: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9em;
+      box-shadow: 0 8px 32px rgba(39,174,96,0.3);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 1.8em;
+      line-height: 1.2;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin: 8px 0 0 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--glass);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .section-header {
+      padding: 15px;
+      background: var(--glass);
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    .section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background: var(--glass);
+      border-radius: 0 0 8px 8px;
+    }
+
+    .section-content.open {
+      max-height: 1000px;
+    }
+
+    .section-content-inner {
+      padding: 20px;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: var(--glass);
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg);
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons-container {
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 10px 15px;
+        font-size: 1em;
+      }
+
+      .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="buttons-container">
+      <a href="index.html" class="btn">🏠 Inicio</a>
+      <a href="tipos.html" class="btn">🌿 Tipos</a>
+      <a href="abc.html" class="btn">📚 ABC Cannabis</a>
+      <a href="Sobredosis.html" class="btn">⚠️ Sobredosis</a>
+      <a href="Eventos.html" class="btn">📅 Eventos</a>
+      <a href="rules.html" class="btn">📜 Reglas Club</a>
+      <a href="hub.html" class="btn">🌟 Portal Místico</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <div class="logo">pálida</div>
+      <div>
+        <h1>Guía rápida: "pálida" por cannabis</h1>
+        <p class="lead">Información práctica sobre síntomas, causas y primeros auxilios</p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <div class="card">
+        <section class="section" id="symptoms">
+          <div class="section-header">
+            <h2>🤢 Síntomas comunes</h2>
+          </div>
+          <div class="section-content">
+            <div class="section-content-inner">
+              <ul class="checklist">
+                <li>Mareo y desorientación</li>
+                <li>Náusea y posible vómito</li>
+                <li>Sudoración fría</li>
+                <li>Ansiedad o pánico</li>
+                <li>Taquicardia</li>
+                <li>Palidez</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="causes">
+          <div class="section-header">
+            <h2>⚡ Causas frecuentes</h2>
+          </div>
+          <div class="section-content">
+            <div class="section-content-inner">
+              <ul class="checklist">
+                <li>Dosis excesiva o concentración alta de THC</li>
+                <li>Consumo con estómago vacío</li>
+                <li>Mezcla con alcohol u otras sustancias</li>
+                <li>Sensibilidad individual</li>
+                <li>Ansiedad previa o ambiente estresante</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="firstaid">
+          <div class="section-header">
+            <h2>🚑 Primeros auxilios</h2>
+          </div>
+          <div class="section-content">
+            <div class="section-content-inner">
+              <ul class="checklist">
+                <li>Mantén la calma y tranquiliza a la persona</li>
+                <li>Llévala a un lugar tranquilo y fresco</li>
+                <li>Dale agua (sorbos pequeños)</li>
+                <li>Si hay mareo, que se siente o acueste</li>
+                <li>Respiración lenta y profunda</li>
+                <li>Azúcar o algo dulce puede ayudar</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="card">
+        <h2>Acciones rápidas</h2>
+        <div class="checklist">
+          <button class="btn" id="btnCalm">💭 Qué decir</button>
+          <button class="btn" id="btnSymptoms">🔍 Cuándo preocuparse</button>
+          <button class="btn" id="btnPrevent">⚠️ Prevención</button>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="card" style="margin-top:20px;text-align:center;color:var(--muted)">
+      <p>Esta guía es informativa y no sustituye la evaluación médica. En caso de duda, consulta con servicios sanitarios.</p>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+  <script>
+    // Secciones expandibles
+    document.querySelectorAll('.section-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const isOpen = content.classList.contains('open');
+        
+        // Cerrar todas las secciones
+        document.querySelectorAll('.section-content').forEach(c => {
+          c.classList.remove('open');
+          c.style.maxHeight = null;
+        });
+
+        // Abrir la sección actual si estaba cerrada
+        if (!isOpen) {
+          content.classList.add('open');
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Funcionalidad del modal
+    function showModal(title, text) {
+      const modal = document.getElementById('modal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalText = document.getElementById('modalText');
+      
+      modalTitle.textContent = title;
+      modalText.textContent = text;
+      modal.classList.add('active');
+    }
+
+    // Cerrar modal
+    document.querySelector('.modal-close').addEventListener('click', () => {
+      document.getElementById('modal').classList.remove('active');
+    });
+
+    // Botones de acción
+    document.getElementById('btnCalm').addEventListener('click', () => {
+      showModal('Frases para calmar', 
+        'Habla con voz baja y simple. Ejemplos:\n\n' +
+        '"Respira despacio conmigo, estás en un lugar seguro."\n' +
+        '"Esto pasa en unas horas, voy a quedarme contigo."\n' +
+        '"Toma un sorbo de agua cuando te sientas listo."'
+      );
+    });
+
+    document.getElementById('btnSymptoms').addEventListener('click', () => {
+      showModal('Cuándo buscar ayuda', 
+        'Busca ayuda médica si:\n\n' +
+        '• Pérdida de consciencia\n' +
+        '• Respiración muy irregular\n' +
+        '• Dolor en el pecho intenso\n' +
+        '• Vómitos continuados\n' +
+        '• Desorientación severa\n\n' +
+        'La mayoría de casos se resuelven en 2-6 horas.'
+      );
+    });
+
+    document.getElementById('btnPrevent').addEventListener('click', () => {
+      showModal('Prevención', 
+        '• Conoce tu tolerancia y límites\n' +
+        '• Come algo antes del consumo\n' +
+        '• Evita mezclar con alcohol\n' +
+        '• Comienza con dosis bajas\n' +
+        '• Ten agua disponible\n' +
+        '• Escoge un ambiente tranquilo\n' +
+        '• Ten compañía de confianza'
+      );
+    });
+
+    // Abrir la primera sección al cargar
+    window.addEventListener('load', () => {
+      document.querySelector('.section-header').click();
+    });
+  </script>
+</body>
+</html>

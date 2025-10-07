@@ -1,0 +1,7 @@
+/* Archivo CSS optimizado que combina todos los estilos */
+@import 'runesStyles.css';
+@import 'runesAnimations.css';
+@import 'runeCards.css';
+@import 'runeLayout.css';
+@import 'horseShoeStyles.css';
+@import 'translate.css';

@@ -1,0 +1,224 @@
+/* Estilos para las cartas con hover */
+.hoverable-card {
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.card-front {
+    position: relative;
+    z-index: 1;
+}
+
+.card-details {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26,58,45,0.98);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 2;
+    overflow-y: auto;
+}
+
+.hoverable-card.active .card-details {
+    display: block;
+}
+
+.hoverable-card {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.hoverable-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card-meanings {
+    color: #e0ffe0;
+    padding: 10px;
+    height: 100%;
+}
+
+.library-card {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.library-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.library-card h3 {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    color: #e0ffe0;
+}
+
+.meaning-section {
+    margin-bottom: 15px;
+}
+
+.meaning-section h4 {
+    color: #7fffa7;
+    margin: 0 0 8px 0;
+    font-size: 16px;
+}
+
+.meaning-section p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Estilo del scrollbar */
+.card-details::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card-details::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+.card-details::-webkit-scrollbar-thumb {
+    background: rgba(127,255,167,0.3);
+    border-radius: 3px;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .card-details {
+        font-size: 13px;
+    }
+    
+    .meaning-section h4 {
+        font-size: 15px;
+    }
+    
+    .meaning-section p {
+        font-size: 13px;
+    }
+}
+
+.card-modal-overlay.show {
+    opacity: 1;
+}
+
+.card-modal-content {
+    background: rgba(26,58,45,0.95);
+    border-radius: 15px;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.card-modal-overlay.show .card-modal-content {
+    transform: translateY(0);
+}
+
+.card-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(127,255,167,0.3);
+}
+
+.card-modal-header h2 {
+    margin: 0;
+    color: #e0ffe0;
+    font-size: 24px;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    color: #e0ffe0;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.card-modal-body {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    gap: 20px;
+}
+
+.card-image {
+    text-align: center;
+}
+
+.card-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.card-meanings {
+    color: #e0ffe0;
+}
+
+.meaning-section {
+    margin-bottom: 20px;
+}
+
+.meaning-section h3 {
+    color: #7fffa7;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.meaning-section p {
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .card-modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .card-image img {
+        max-height: 300px;
+        width: auto;
+    }
+}

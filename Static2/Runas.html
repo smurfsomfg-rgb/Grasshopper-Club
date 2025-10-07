@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tirada de runas nórdicas con interpretaciones y significados místicos">
+    <title>Oráculo de Runas</title>
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts de configuración -->
+    <script>
+        // Configuración simple para rutas de assets
+        window.runesConfig = {
+            assetsPath: window.location.hostname.includes('github.io') ? 
+                `/${window.location.pathname.split('/')[1]}/Static2` : ''
+        };
+    </script>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/runesStyles.css">
+    <link rel="stylesheet" href="css/runesAnimations.css">
+    <link rel="stylesheet" href="css/runeCards.css">
+    <link rel="stylesheet" href="css/runeLayout.css">
+    <link rel="stylesheet" href="css/horseShoeStyles.css">
+    <link rel="stylesheet" href="css/translate.css">
+    <link rel="stylesheet" href="css/search-overlay.css">
+
+    <!-- Scripts críticos -->
+    <script src="js/runeImageLoader.js"></script>
+    <script src="js/runesCore.js"></script>
+    <script src="js/runesMeaning.js"></script>
+
+    <!-- Scripts no críticos -->
+    <script src="js/runesSearch.js" defer></script>
+    <script src="js/runesSpreads.js" defer></script>
+    <script src="js/runePatterns.js" defer></script>
+    <script src="js/runeInterpretation.js" defer></script>
+    <script src="js/horseShoeInterpretation.js" defer></script>
+    <script src="js/crossInterpretation.js" defer></script>
+    <script src="js/auroraInterpretation.js" defer></script>
+
+    <!-- Google Translate -->
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                includedLanguages: 'en,fr,de,it,pt,ru,ja,zh-CN',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        // Función para el ojo que sigue al cursor
+        function initEyeFollowing() {
+            const irisGroup = document.getElementById('irisGroup');
+            const svg = irisGroup.closest('svg');
+            const svgRect = svg.getBoundingClientRect();
+            const maxMove = 20; // máximo movimiento del iris
+
+            function moveEye(e) {
+                // Obtener coordenadas relativas al SVG
+                const x = e.clientX - svgRect.left;
+                const y = e.clientY - svgRect.top;
+                
+                // Convertir a coordenadas SVG (viewBox)
+                const svgX = (x / svgRect.width) * 300;
+                const svgY = (y / svgRect.height) * 200;
+                
+                // Calcular la distancia desde el centro
+                const dx = svgX - 150;
+                const dy = svgY - 100;
+                
+                // Limitar el movimiento
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const scale = Math.min(distance / maxMove, 1);
+                
+                const moveX = (dx * scale * maxMove) / distance;
+                const moveY = (dy * scale * maxMove) / distance;
+                
+                // Aplicar transformación con suavizado
+                irisGroup.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                irisGroup.style.transition = 'transform 0.1s ease';
+            }
+
+            // Para dispositivos táctiles
+            function handleTouch(e) {
+                e.preventDefault();
+                if (e.touches.length > 0) {
+                    moveEye(e.touches[0]);
+                }
+            }
+
+            // Event listeners
+            svg.addEventListener('mousemove', moveEye);
+            svg.addEventListener('touchmove', handleTouch);
+            svg.addEventListener('touchstart', handleTouch);
+
+            // Resetear posición cuando el ratón sale
+            svg.addEventListener('mouseleave', () => {
+                irisGroup.style.transform = 'translate(0, 0)';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar el ojo que sigue al cursor
+            initEyeFollowing();
+
+            // Esperar a que las runas estén cargadas
+            if (!window.RUNES) {
+                console.error('Error: RUNES no está definido');
+                return;
+            }
+
+            // Inicializar funcionalidades principales
+            console.log('DOM Cargado, inicializando aplicación...');
+            if (typeof window.initRuneApp === 'function') {
+                window.initRuneApp();
+            } else {
+                console.error('initRuneApp no está disponible');
+            }
+            if (typeof window.initRuneSearch === 'function') {
+                window.initRuneSearch();
+            } else {
+                console.error('initRuneSearch no está disponible');
+            }
+        });
+
+        // Verificar si todas las imágenes están cargadas
+        window.addEventListener('load', function() {
+            console.log('Verificando imágenes de runas...');
+            if (!window.RUNES) {
+                console.error('RUNES no está definido');
+                return;
+            }
+            
+            const images = window.RUNES.map(rune => {
+                const img = new Image();
+                img.src = rune.img;
+                return new Promise((resolve, reject) => {
+                    img.onload = resolve;
+                    img.onerror = () => reject(`Error cargando ${rune.name}: ${rune.img}`);
+                });
+            });
+            
+            Promise.all(images)
+                .then(() => console.log('Todas las runas cargadas correctamente'))
+                .catch(error => console.error('Error cargando runas:', error));
+        });
+    </script>
+</head>
+<body>
+    <!-- Fondo animado -->
+    <div class="stars"></div>
+    <div class="twinkles"></div>
+
+    <!-- No message needed as it works locally -->
+
+    <!-- Contenedor principal -->
+    <main class="wrap">
+        <div class="card">
+            <header class="heading">
+                <h1 class="title">Oráculo de Runas</h1>
+                <p class="subtitle">Consulta la antigua sabiduría de las runas nórdicas</p>
+            </header>
+
+            <!-- Eye that follows cursor -->
+            <div class="eye-wrap">
+                <div class="oracle" aria-hidden="true">
+                    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ojo que sigue al cursor">
+                        <!-- outer glow -->
+                        <defs>
+                            <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#00e0ff"/>
+                                <stop offset="65%" stop-color="#00ff9d"/>
+                                <stop offset="100%" stop-color="#02262a"/>
+                            </radialGradient>
+                            <linearGradient id="lidGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="rgba(0,255,180,.45)"/>
+                                <stop offset="100%" stop-color="rgba(0,224,255,.1)"/>
+                            </linearGradient>
+                            <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="6" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- eye outline -->
+                        <path d="M20 100 Q150 -20 280 100 Q150 220 20 100 Z" fill="url(#lidGrad)" stroke="#00ffc3" stroke-opacity=".25"/>
+                        <path d="M28 100 Q150 -6 272 100 Q150 206 28 100 Z" fill="rgba(0,0,0,.25)" stroke="rgba(0,255,220,.25)"/>
+
+                        <!-- iris+pupil group moves -->
+                        <g id="irisGroup" filter="url(#softGlow)">
+                            <circle id="iris" cx="150" cy="100" r="36" fill="url(#irisGrad)" stroke="#00ffc3" stroke-opacity=".35" />
+                            <circle id="pupil" cx="150" cy="100" r="16" fill="#001015" stroke="#35fff0" stroke-opacity=".2" />
+                            <circle cx="164" cy="88" r="6" fill="#c8ffff" fill-opacity=".85" />
+                        </g>
+                    </svg>
+                </div>
+                <span class="eye-label">El ojo te observa…</span>
+            </div>
+
+            <button class="btn-info" id="infoBtn" aria-label="Información sobre tipos de tirada">?</button>
+
+            <div class="controls">
+                <select id="spreadSel" class="sel" aria-label="Tipo de tirada">
+                    <option value="nornir">Tirada de las Tres Nornas (Pasado–Presente–Futuro)</option>
+                    <option value="cross">Cruz de las Runas (Situación–Desafío–Consejo–Influencia–Resultado)</option>
+                    <option value="horseshoe">Herradura del Tiempo (Visión amplia)</option>
+                    <option value="aurora">Aurora de las Runas (Origen–Bloqueo–Recurso–Aliado–Aprendizaje–Destino)</option>
+                    <option value="single">Runa Simple (Respuesta rápida / Runa del día)</option>
+                </select>
+                <button id="drawBtn" class="btn" aria-label="Hacer tirada de runas">✦ Hacer tirada</button>
+                <button id="clearBtn" class="btn" aria-label="Limpiar tirada">Reiniciar</button>
+                <button id="searchBtn" class="btn" aria-label="Buscar runas">🔍 Buscar runas</button>
+                <a href="../index.html" class="btn" aria-label="Volver al inicio">
+                    <img src="../GrasshoperLibro.png" alt="" class="btn-icon">
+                    Inicio
+                </a>
+            </div>
+
+            <div id="result" class="grid" aria-live="polite"></div>
+
+            <!-- Modal de información de tiradas -->
+            <div id="infoModal" class="modal" aria-modal="true" role="dialog">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Cerrar">×</button>
+                    <h2>Tipos de Tirada</h2>
+                    <div class="spread-info">
+                        <h3>Tirada de 3 - Las Nornas</h3>
+                        <p>Basada en las tres Nornas de la mitología nórdica. Urd (pasado), Verdandi (presente) y Skuld (futuro). Ideal para entender la evolución de una situación.</p>
+                    </div>
+                    <div class="spread-info">
+                        <h3>Cruz de 5</h3>
+                        <p>Una tirada completa que examina la situación desde múltiples ángulos: la situación actual, el desafío principal, el mejor consejo, influencias externas y el resultado probable.</p>
+                    </div>
+                    <div class="spread-info">
+                        <h3>Runa del Día</h3>
+                        <p>Una sola runa para obtener orientación rápida o establecer la energía del día. Simple pero poderosa.</p>
+                    </div>
+                    <div class="spread-info">
+                        <h3>Herradura de 7</h3>
+                        <p>Una tirada amplia en forma de herradura que proporciona una visión completa de la situación, incluyendo aspectos pasados, presentes, futuros, internos, externos y la síntesis final.</p>
+                    </div>
+                    <div class="spread-info">
+                        <h3>Aurora de 6</h3>
+                        <p>Inspirada en el amanecer, esta tirada revela el origen de la situación, bloqueos actuales, recursos disponibles, aliados potenciales, lecciones por aprender y el destino hacia el que nos dirigimos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de búsqueda de runas -->
+            <div id="searchModal" class="modal" aria-modal="true" role="dialog">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Cerrar">×</button>
+                    <h2>Búsqueda de Runas</h2>
+                    <input type="text" class="search-input" id="runeSearch" placeholder="Buscar por nombre o significado..." aria-label="Buscar runas">
+                    <div id="searchResults" class="search-container"></div>
+                </div>
+            </div>
+
+            <footer>
+                Consejo: para mejor render de los símbolos, instala una fuente rúnica (p. ej., Noto Runic). Los nombres funcionan como fallback.
+            </footer>
+        </div>
+    </main>
+
+    <div class="cursor-ring" id="ring"></div>
+</body>
+</html>

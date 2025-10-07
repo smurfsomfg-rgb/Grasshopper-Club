@@ -1,0 +1,98 @@
+/* Estilos para el PDF */
+.pdf-content {
+    background: white;
+    color: black;
+    font-family: 'Times New Roman', serif;
+    line-height: 1.5;
+    padding: 20mm;
+}
+
+.pdf-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pdf-header h1 {
+    font-size: 24pt;
+    margin: 0 0 15px 0;
+    color: #000;
+}
+
+.pdf-header h2 {
+    font-size: 18pt;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.spread-description {
+    text-align: justify;
+    font-size: 12pt;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+/* Estilos para las cartas */
+.card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+}
+
+.card img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.card-title {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.card-meaning {
+    margin: 10px 0;
+    text-align: justify;
+}
+
+/* Estilos para el resumen */
+#group-summary {
+    margin-top: 30px;
+    border-top: 1px solid #000;
+    padding-top: 20px;
+}
+
+#group-summary h2 {
+    font-size: 16pt;
+    margin-bottom: 15px;
+}
+
+#summary {
+    text-align: justify;
+    font-size: 11pt;
+}
+
+/* Asegurar que los elementos importantes sean visibles */
+.card,
+.card-title,
+.card-meaning,
+#group-summary,
+#summary {
+    display: block !important;
+    color: black !important;
+}
+
+/* Ocultar elementos innecesarios al imprimir */
+button,
+.header-buttons,
+.search-overlay,
+.search-container,
+.modal,
+footer,
+#copyBtn,
+#pdfBtn,
+#toggleSearch,
+#toggleHistory {
+    display: none !important;
+}

@@ -1,0 +1,179 @@
+/* Layout para tiradas de runas */
+.spread-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Contenedor del grid de runas */
+.spread-grid {
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.1);
+}
+
+/* Contenedor de interpretaciones */
+.interpretation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 0 20px rgba(0, 224, 255, 0.1);
+}
+
+/* Título de la tirada */
+.spread-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 224, 255, 0.2);
+}
+
+.spread-title h2 {
+    color: #00e0ff;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.spread-description {
+    color: #a0f0ff;
+    font-size: 1.1rem;
+}
+
+/* Secciones de interpretación */
+.nornas-interpretation, 
+.cross-interpretation,
+.horseshoe-interpretation,
+.aurora-interpretation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.nornas-section,
+.cross-section,
+.horseshoe-section,
+.aurora-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.patterns-analysis,
+.nornas-guidance {
+    background: rgba(0, 40, 60, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Estilos específicos para cada tipo de tirada */
+.spread-3 {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+}
+
+.spread-5 {
+    grid-template-areas:
+        ".     top    ."
+        "left  center right"
+        ".     bottom .";
+    max-width: 900px;
+}
+
+.spread-6 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    max-width: 900px;
+}
+
+.spread-7 {
+    grid-template-areas:
+        ".     .      top    .      ."
+        "left1 left2  center right2 right1"
+        ".     .      bottom .      .";
+    max-width: 1100px;
+}
+
+/* Rune meanings display */
+.rune-meaning {
+    border-left: 3px solid rgba(0, 224, 255, 0.3);
+    padding: 1rem;
+    margin: 1rem 0;
+    background: rgba(0, 20, 30, 0.3);
+    border-radius: 0 10px 10px 0;
+}
+
+.rune-meaning h4 {
+    color: #00e0ff;
+    margin-bottom: 0.8rem;
+}
+
+.rune-meaning strong {
+    color: #80f0ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .spread-container {
+        padding: 1rem;
+    }
+
+    .interpretation-container {
+        padding: 1rem;
+    }
+
+    .spread-grid {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .spread-3, .spread-5, .spread-6, .spread-7 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: none;
+    }
+
+    .spread-title h2 {
+        font-size: 1.5rem;
+    }
+
+    .spread-description {
+        font-size: 1rem;
+    }
+}
+
+/* Animaciones y transiciones */
+.interpretation-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efectos de hover */
+.rune-meaning:hover {
+    border-left-color: rgba(0, 255, 200, 0.5);
+    background: rgba(0, 30, 40, 0.4);
+    transition: all 0.3s ease;
+}

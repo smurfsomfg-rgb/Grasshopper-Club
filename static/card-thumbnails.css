@@ -1,0 +1,53 @@
+.card-preview {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.card-thumbnail {
+    width: 40px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.reading-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.card-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.card-position {
+    color: #666;
+    font-style: italic;
+    margin: 5px 0;
+}
+
+.card-meaning-preview {
+    font-size: 0.9em;
+    color: #444;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.show-more-btn {
+    background: none;
+    border: none;
+    color: #0066cc;
+    cursor: pointer;
+    padding: 5px 0;
+    font-size: 0.9em;
+}
+
+.show-more-btn:hover {
+    text-decoration: underline;
+}

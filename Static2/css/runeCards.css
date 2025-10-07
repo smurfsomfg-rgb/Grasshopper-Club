@@ -1,0 +1,126 @@
+.rune-container {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 1rem;
+}
+
+.rune-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.rune-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(0, 224, 255, 0.2));
+}
+
+.rune-img:hover {
+    filter: drop-shadow(0 0 15px rgba(0, 255, 200, 0.4));
+    transform: scale(1.02);
+}
+
+.rune-card.revealed {
+    animation: revealRune 0.8s ease-out forwards;
+}
+
+.rune-card.inverted img {
+    transform: rotate(180deg);
+}
+
+/* Animación de revelación */
+@keyframes revealRune {
+    0% {
+        transform: rotateY(180deg) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Efecto de glow al revelar */
+.rune-card.revealed .rune-img {
+    animation: glowEffect 1.5s ease-in-out;
+}
+
+@keyframes glowEffect {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(0, 224, 255, 0.2));
+    }
+    50% {
+        filter: drop-shadow(0 0 25px rgba(0, 255, 200, 0.6));
+    }
+    100% {
+        filter: drop-shadow(0 0 10px rgba(0, 224, 255, 0.2));
+    }
+}
+
+/* Grid de runas */
+.spread-grid {
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+/* Configuraciones específicas para cada tipo de tirada */
+.spread-3 {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+}
+
+.spread-5 {
+    grid-template-areas:
+        ".     top    ."
+        "left  center right"
+        ".     bottom .";
+    max-width: 900px;
+}
+
+.spread-6 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    max-width: 900px;
+}
+
+.spread-7 {
+    grid-template-areas:
+        ".     .      top    .      ."
+        "left1 left2  center right2 right1"
+        ".     .      bottom .      .";
+    max-width: 1200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rune-container {
+        width: 150px;
+        height: 225px;
+    }
+
+    .spread-grid {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .spread-5, .spread-6, .spread-7 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: none;
+    }
+}

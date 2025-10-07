@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarot Online - Tiradas y Significados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="tooltips.css">
+    <link rel="stylesheet" href="readings.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="search-overlay.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="feedback.css">
+    <link rel="stylesheet" href="spreads.css">
+    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="card-details.css">
+    <link rel="stylesheet" href="card-thumbnails.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+    <h1>Tarot Online</h1>
+    
+    <!-- Botones de navegación -->
+    <div class="header-buttons">
+        <button onclick="window.location.href='../index.html'" class="home-btn animated-button ripple" aria-label="Volver al inicio">Inicio</button>
+        <button id="toggleSearch" class="toggle-search-btn animated-button ripple" aria-label="Buscar cartas">
+            <span class="btn-icon">🔍</span>
+            <span class="btn-text">Buscar en biblioteca</span>
+        </button>
+        <button id="toggleHistory" class="toggle-history-btn animated-button ripple" aria-label="Mostrar historial de lecturas">
+            <span class="history-icon">📜</span>
+            <span class="btn-text">Historial</span>
+        </button>
+    </div>
+
+    <!-- Panel de búsqueda -->
+    <div class="search-overlay"></div>
+    <div class="search-container">
+        <div class="search-header">
+            <input type="text" id="cardSearch" placeholder="Buscar cartas por nombre o significado..." aria-label="Buscar cartas">
+            <button class="close-search-btn">×</button>
+        </div>
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="major">Arcanos Mayores</button>
+            <button class="filter-btn" data-filter="wands">Bastos</button>
+            <button class="filter-btn" data-filter="cups">Copas</button>
+            <button class="filter-btn" data-filter="swords">Espadas</button>
+            <button class="filter-btn" data-filter="pents">Oros</button>
+        </div>
+        <div id="cardLibrary" class="card-library">
+            <!-- Las cartas se cargarán aquí dinámicamente -->
+        </div>
+    </div>
+    
+    <!-- Controles principales -->
+    <div class="spread-select">
+        <label for="spread">Selecciona una tirada:</label>
+        <select id="spread"></select>
+        <div class="action-buttons">
+            <button id="drawBtn" class="animated-button ripple">
+                <span class="btn-icon">🎴</span>
+                <span class="btn-text">Realizar tirada</span>
+            </button>
+            <button id="pdfBtn" class="animated-button ripple">
+                <span class="btn-icon">📄</span>
+                <span class="btn-text">Guardar PDF</span>
+            </button>
+            <button id="translateBtn" class="animated-button ripple">
+                <span class="btn-icon">🌐</span>
+                <span class="btn-text">Traducir</span>
+            </button>
+            <button id="toggleDesc" class="animated-button ripple info-btn">
+                <span class="btn-icon">❔</span>
+                <span class="btn-text">Info</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Panel de información de tiradas -->
+    <aside id="tiradaDescPanel" class="tirada-desc-panel">
+        <h2>✧ Tipos de Tirada de Tarot ✧</h2>
+        
+        <div class="tirada-info">
+            <h3>Tirada de Tres Cartas</h3>
+            <div class="tirada-details">
+                <span class="cards-count">3 Cartas</span>
+                <p>Ideal para obtener una visión rápida sobre pasado, presente y futuro. Permite analizar el flujo temporal y energético de la consulta.</p>
+            </div>
+        </div>
+        
+        <div class="tirada-info">
+            <h3>Cruz Celta</h3>
+            <div class="tirada-details">
+                <span class="cards-count">10 Cartas</span>
+                <p>La tirada más profunda y tradicional. Analiza todos los aspectos de una situación, desde lo consciente e inconsciente hasta influencias externas y desenlace probable. Recomendada para consultas complejas.</p>
+            </div>
+        </div>
+        
+        <div class="tirada-info">
+            <h3>Tirada de Una Carta</h3>
+            <div class="tirada-details">
+                <span class="cards-count">1 Carta</span>
+                <p>Perfecta para recibir un mensaje, consejo o advertencia puntual del tarot. Responde preguntas concretas de forma directa.</p>
+            </div>
+        </div>
+        
+        <div class="tirada-info">
+            <h3>Tirada de la Herradura</h3>
+            <div class="tirada-details">
+                <span class="cards-count">7 Cartas</span>
+                <p>Permite analizar el desarrollo de una situación, sus influencias internas y externas, y recibir consejo para tomar decisiones acertadas. Muy útil para procesos evolutivos.</p>
+            </div>
+        </div>
+        
+        <div class="tirada-info">
+            <h3>Tirada de Relación</h3>
+            <div class="tirada-details">
+                <span class="cards-count">5 Cartas</span>
+                <p>Diseñada específicamente para explorar la dinámica de una relación, mostrando la energía de ambas personas, la conexión entre ellas, desafíos y potencial de crecimiento conjunto. Ideal para entender mejor las relaciones románticas, de amistad o familiares.</p>
+            </div>
+        </div>
+        <button id="closeDesc" class="close-desc-btn">Cerrar</button>
+    </aside>
+
+    <!-- Área de cartas -->
+    <div id="cards"></div>
+
+    <!-- Modal de cartas -->
+    <div id="cardModal" class="card-modal">
+        <img id="modalImg" src="" alt="Carta grande">
+        <button id="closeModal" class="close-modal-btn">Cerrar</button>
+    </div>
+
+    <!-- Elementos adicionales -->
+    <div class="fairy-container" id="fairyContainer"></div>
+    <div id="feedback-container"></div>
+    <div id="group-summary">
+        <h2>Resumen grupal</h2>
+        <div id="summary"></div>
+    </div>
+
+    <footer>
+        <small>Tarot Rider-Waite | Interpretaciones profundas | Sin dependencias externas</small>
+    </footer>
+
+    <!-- Sistema de logging (debe ir primero) -->
+    <script src="logger.js"></script>
+    <script>
+        // Configurar logger
+        window.addEventListener('DOMContentLoaded', () => {
+            Logger.setLevel(window.location.hostname === 'localhost' ? 'DEBUG' : 'ERROR');
+            
+            // Interceptar errores no manejados
+            window.onerror = function(msg, url, line, col, error) {
+                Logger.error('Global', 'Error no manejado', {
+                    message: msg,
+                    url: url,
+                    line: line,
+                    column: col,
+                    error: error
+                });
+                ErrorPanel.log(`Error: ${msg} (Línea: ${line})`);
+                return false;
+            };
+
+            // Interceptar promesas rechazadas no manejadas
+            window.addEventListener('unhandledrejection', function(event) {
+                Logger.error('Global', 'Promesa rechazada no manejada', {
+                    reason: event.reason
+                });
+                ErrorPanel.log(`Promesa rechazada: ${event.reason}`);
+            });
+        });
+    </script>
+    
+    <!-- Scripts base y dependencias -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <!-- Definiciones y utilidades básicas -->
+    <script src="tarot_meanings.js"></script>
+    <script src="storage.js"></script>
+    
+    <!-- UI y animaciones -->
+    <script src="animations.js"></script>
+    <script src="tooltips.js"></script>
+    
+    <!-- Funcionalidad de búsqueda y modal -->
+    <script src="search.js"></script>
+    <script src="modal.js"></script>
+    
+    <!-- Características adicionales -->
+    <script src="info.js"></script>
+    <script src="readings.js"></script>
+    <script src="stars.js"></script>
+    <script src="tarot.js"></script>
+    
+    <!-- Componente principal -->
+    <script src="main.js"></script>
+
+    <!-- Verificar carga de dependencias -->
+    <script>
+        if (typeof html2pdf === 'undefined') {
+            console.error('Error: html2pdf no se ha cargado correctamente');
+            alert('Error al cargar algunas dependencias. Por favor, recarga la página.');
+        }
+    </script>
+    
+    <script>
+        // Función para verificar la carga de recursos
+        function verificarCarga() {
+            const logger = Logger.getContextLogger('TarotInit');
+            
+            // Verificar elementos DOM
+            const drawBtn = document.getElementById('drawBtn');
+            const spreadSelect = document.getElementById('spread');
+            
+            if (!drawBtn) {
+                logger.error('No se encontró el botón de tirada');
+                return false;
+            }
+            if (!spreadSelect) {
+                logger.error('No se encontró el selector de tiradas');
+                return false;
+            }
+
+            // Verificar si las definiciones están disponibles
+            if (typeof TarotSpreads === 'undefined' || !TarotSpreads) {
+                logger.error('No se cargaron las definiciones de tiradas');
+                return false;
+            }
+            if (typeof TarotMeanings === 'undefined' || !TarotMeanings) {
+                logger.error('No se cargaron los significados de las cartas');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Esperar a que todo el contenido esté cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            const logger = Logger.getContextLogger('TarotInit');
+            
+            // Intentar verificar la carga varias veces
+            let intentos = 0;
+            const maxIntentos = 5;
+            const intervalo = setInterval(function() {
+                intentos++;
+                
+                if (verificarCarga()) {
+                    clearInterval(intervalo);
+                    logger.info('Sistema inicializado correctamente');
+                } else if (intentos >= maxIntentos) {
+                    clearInterval(intervalo);
+                    logger.error('No se pudo completar la carga después de varios intentos');
+                }
+            }, 500);
+        });
+    </script>
+
+    <!-- Script de inicialización -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logger = Logger.getContextLogger('SearchUI');
+            const toggleSearchBtn = document.getElementById('toggleSearch');
+            const searchContainer = document.querySelector('.search-container');
+            const searchOverlay = document.querySelector('.search-overlay');
+            
+            if (toggleSearchBtn && searchContainer && searchOverlay) {
+                toggleSearchBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    searchContainer.classList.add('show');
+                    searchOverlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                const closeBtn = document.querySelector('.close-search-btn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        searchContainer.classList.remove('show');
+                        searchOverlay.classList.remove('show');
+                        document.body.style.overflow = '';
+                    });
+                }
+
+                searchOverlay.addEventListener('click', function() {
+                    searchContainer.classList.remove('show');
+                    searchOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                });
+            } else {
+                logger.error('No se encontraron algunos elementos necesarios de búsqueda');
+            }
+        });
+    </script>
+
+    <!-- Google Translate widget -->
+    <script>
+        function loadGoogleTranslate() {
+            if (!document.getElementById('google_translate_element')) {
+                var div = document.createElement('div');
+                div.id = 'google_translate_element';
+                div.style = 'position:fixed;top:10px;right:10px;z-index:9999;';
+                document.body.appendChild(div);
+                var s = document.createElement('script');
+                s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                document.body.appendChild(s);
+                window.googleTranslateElementInit = function() {
+                    new window.google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
+                }
+            }
+        }
+        document.getElementById('translateBtn').onclick = loadGoogleTranslate;
+    </script>
+
+    <!-- Contenedor para detalles de la carta -->
+    <div id="cardDetailsContainer" class="card-details-container">
+        <!-- El contenido se generará dinámicamente -->
+    </div>
+    
+    <!-- PDF Export Container (hidden) -->
+    <div id="pdfExportContainer" style="display: none;"></div>
+
+    <!-- Required libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>

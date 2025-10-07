@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog sobre Cannabis — Guía Completa</title>
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="position:fixed;top:18px;right:24px;z-index:9999;"></div>
+    <script type="text/javascript">
+  // Función que se llamará cuando el script de Google Translate se cargue
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'es',
+      includedLanguages: 'en,fr,de,it,es',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false,
+      gaTrack: true,
+      gaId: 'UA-XXXXX-X'
+    }, 'google_translate_element');
+  }
+
+  // Cargar el script de Google Translate
+  function loadGoogleTranslate() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.onerror = function() {
+      console.error('Error al cargar Google Translate');
+      document.getElementById('google_translate_element').innerHTML = 
+        '<select style="padding:8px 14px;border-radius:8px;font-weight:600;background:#fff;color:#222;border:1px solid #ccc;" ' +
+        'onchange="window.location.href=\'https://translate.google.com/translate?sl=es&tl=\'+this.value+\'&u=\'+encodeURIComponent(window.location.href)">' +
+        '<option value="es">Español</option>' +
+        '<option value="en">English</option>' +
+        '<option value="fr">Français</option>' +
+        '<option value="de">Deutsch</option>' +
+        '<option value="it">Italiano</option>' +
+        '</select>';
+    };
+    document.body.appendChild(script);
+  }
+
+  // Cargar Google Translate cuando la página esté lista
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadGoogleTranslate);
+  } else {
+    loadGoogleTranslate();
+  }
+  </script>
+  <style>
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: linear-gradient(90deg, rgba(35,96,40,0.95), rgba(43,176,95,0.95));
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 6px 18px rgba(4,7,5,0.45);
+    }
+    .top-bar h1 {
+      margin: 0 0 10px 0;
+      color: #ffffff;
+      font-size: 2rem;
+      text-shadow: 
+        2px 2px 0 #1a7740,
+        -2px -2px 0 #1a7740,
+        2px -2px 0 #1a7740,
+        -2px 2px 0 #1a7740,
+        0 2px 0 #1a7740,
+        2px 0 0 #1a7740,
+        0 -2px 0 #1a7740,
+        -2px 0 0 #1a7740,
+        0 4px 8px rgba(0,0,0,0.4);
+      letter-spacing: 1px;
+      font-weight: 800;
+      transform: translateZ(0);
+      transition: text-shadow 0.3s ease;
+    }
+    .top-bar h1:hover {
+      text-shadow: 
+        2px 2px 0 #1a7740,
+        -2px -2px 0 #1a7740,
+        2px -2px 0 #1a7740,
+        -2px 2px 0 #1a7740,
+        0 2px 0 #1a7740,
+        2px 0 0 #1a7740,
+        0 -2px 0 #1a7740,
+        -2px 0 0 #1a7740,
+        0 6px 12px rgba(0,0,0,0.6);
+    }
+    .buttons-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      border: 1px solid rgba(255,255,255,0.06);
+      background: transparent;
+      color: #edf7ee;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: all .18s ease;
+      box-shadow: none;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      background: rgba(255,255,255,0.04);
+    }
+    .btn:active {
+      transform: translateY(-1px);
+    }
+    :root{
+      --bg:#0f1113;
+      --panel:#141618;
+      --accent:#27ae60;
+      --muted:#9aa5a1;
+      --glass: rgba(255,255,255,0.03);
+      --card:#191b1d;
+      --success:#26c281;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071014 0%, var(--bg) 100%);
+      color:#e6efe9;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    header{
+      position:sticky; top:0; z-index:30;
+      background: linear-gradient(90deg, rgba(35,96,40,0.95), rgba(43,176,95,0.95));
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 6px 18px rgba(4,7,5,0.45);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .logo{
+      width:48px; height:48px; border-radius:8px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><rect width="48" height="48" rx="8" fill="%2327ae60"/><text x="24" y="30" font-size="20" text-anchor="middle" font-family="Arial" fill="white">🌿</text></svg>') center/cover no-repeat;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    h1{font-size:1.2rem; margin:0; font-weight:600}
+    header p{margin:0; color:rgba(10,10,10,0.35); font-size:0.9rem}
+
+    nav.controls{
+      margin-left:auto;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .nav-btn{
+      border:1px solid rgba(255,255,255,0.06);
+      background:transparent;
+      color: #edf7ee;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      transition: all .18s ease;
+      box-shadow: none;
+    }
+    .nav-btn:hover{ transform:translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.25) }
+    .nav-btn:active{ transform:translateY(-1px) }
+
+    main{
+      max-width:1100px;
+      margin:26px auto;
+      padding:0 18px 80px;
+    }
+
+    /* Intro card */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
+      border-left:4px solid var(--accent);
+      padding:18px;
+      border-radius:10px;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      box-shadow: 0 10px 30px rgba(2,6,6,0.6);
+    }
+    .hero h2{margin:0 0 6px 0}
+    .hero p{margin:0;color:var(--muted)}
+    .cta{
+      margin-left:auto; display:flex; gap:8px;
+    }
+    .small{font-size:0.9rem; color:var(--muted)}
+
+    /* Accordion sections */
+    .section{
+      margin-top:18px;
+      background:var(--panel);
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.6);
+    }
+    .section-header{
+      display:flex; align-items:center; gap:12px;
+      padding:14px 16px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .section-header h3{margin:0; font-size:1.05rem}
+    .section-header p{margin:0; color:var(--muted); font-size:0.9rem}
+    .chev{
+      margin-left:auto; transition: transform .25s ease;
+      width:34px; height:34px; border-radius:8px;
+      display:grid; place-items:center;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .section-content{
+      max-height:0; padding:0 16px; opacity:0;
+      transition: all .45s cubic-bezier(.22,.9,.2,1);
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.005), transparent);
+    }
+    .section.open .section-content{ padding:18px 18px 22px; opacity:1; max-height:1400px }
+
+    /* cards, lists */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap:12px;
+    }
+    .card{
+      background:var(--card); border-radius:8px; padding:12px; border:1px solid rgba(255,255,255,0.03);
+    }
+    .kpi{font-weight:700; color:var(--accent)}
+    table{
+      width:100%; border-collapse:collapse; margin-top:8px;
+    }
+    th,td{padding:8px; border-bottom:1px dashed rgba(255,255,255,0.03); text-align:left; font-size:0.95rem}
+    th{color:var(--muted); font-weight:700; font-size:0.88rem}
+
+    /* strain list */
+    .strain-list{display:flex; flex-direction:column; gap:8px}
+    .strain-item{
+      display:flex; gap:12px; align-items:center; padding:10px; border-radius:8px; background:linear-gradient(90deg, rgba(255,255,255,0.01), transparent);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .strain-meta{display:flex; flex-direction:column;}
+    .pill{background:rgba(255,255,255,0.03); padding:6px 8px; border-radius:999px; font-size:0.8rem; color:var(--muted)}
+    .toggle-detail{margin-left:auto; background:transparent; border:1px solid rgba(255,255,255,0.04); padding:8px 10px; border-radius:8px; color:var(--accent); cursor:pointer}
+
+    footer{
+      margin-top:28px; text-align:center; color:var(--muted); font-size:0.9rem;
+      padding:20px 0;
+    }
+
+    /* small note */
+    .note{background:linear-gradient(180deg, rgba(40,40,40,0.4), rgba(0,0,0,0.2)); padding:12px; border-radius:8px; color:var(--muted); font-size:0.95rem}
+    .warn{color:#ffcf33; font-weight:700}
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 0 16px;
+    }
+    
+    .nav-btn {
+      border: 1px solid rgba(255,255,255,0.06);
+      background: var(--panel);
+      color: #edf7ee;
+      padding: 12px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: all .18s ease;
+      box-shadow: none;
+      text-align: center;
+      min-width: 140px;
+      white-space: normal;
+      height: auto;
+    }
+    
+    .nav-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      background: rgba(255,255,255,0.04);
+    }
+    
+    @media (max-width:680px) {
+      .nav-btn {
+        font-size: 0.9em;
+        padding: 10px 14px;
+        min-width: 120px;
+        flex: 1 1 calc(50% - 12px);
+      }
+      .brand h1 {
+        font-size: 1.1em;
+      }
+      .brand .small {
+        font-size: 0.85em;
+      }
+    }
+
+    @media (max-width:480px) {
+      .nav-btn {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <h1>Blog del Cannabis</h1>
+    <div class="buttons-container">
+      <a href="index.html" class="btn">🏠 Inicio</a>
+      <a href="tipos.html" class="btn">🌿 Tipos</a>
+      <a href="abc.html" class="btn">📚 ABC Cannabis</a>
+      <a href="Sobredosis.html" class="btn">⚠️ Sobredosis</a>
+      <a href="Eventos.html" class="btn">📅 Eventos</a>
+      <a href="rules.html" class="btn">📜 Reglas Club</a>
+      <a href="hub.html" class="btn">🌟 Portal Místico</a>
+    </div>
+  </div>
+
+  <main>
+    <div class="brand" style="margin-top:32px;display:flex;align-items:center;gap:18px;justify-content:center;">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Blog del Cannabis — Guía Completa</h1>
+        <p class="small">Información educativa y descriptiva — Haz click en los botones para ver cada sección.</p>
+      </div>
+    </div>
+
+    <nav class="controls" aria-label="Navegación principal" style="margin:24px auto;max-width:1000px;">
+      <button class="nav-btn" data-target="sec-cannabinoides">🧬 Cannabinoides</button>
+      <button class="nav-btn" data-target="sec-extracciones">🧪 Extracciones</button>
+      <button class="nav-btn" data-target="sec-tipos">🌱 Tipos Cannabis</button>
+      <button class="nav-btn" data-target="sec-porcentajes">📊 Rangos</button>
+      <button class="nav-btn" data-target="sec-cepas">🪴 Cepas</button>
+      <button class="nav-btn" data-target="sec-legal">⚖️ Legalidad</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div style="max-width:780px">
+        <h2>Guía ampliada sobre cannabis, cannabinoides y concentrados</h2>
+        <p class="small">Todo el contenido está oculto por defecto. Usa la barra superior o desplázate y pulsa los encabezados para desplegar cada tema.</p>
+      </div>
+      <div class="cta">
+        <button class="nav-btn" data-target="sec-cannabinoides">Ver Cannabinoides</button>
+        <button class="nav-btn" data-target="sec-extracciones">Ver Extracciones</button>
+      </div>
+    </section>
+
+    <!-- CANNABINOIDS -->
+    <article id="sec-cannabinoides" class="section" aria-labelledby="h-cannabinoides">
+      <div class="section-header" role="button" tabindex="0">
+        <div>
+          <h3 id="h-cannabinoides">Cannabinoides principales y terpenos</h3>
+          <p class="small">Qué son, efectos generales, precursores y el papel de terpenos.</p>
+        </div>
+        <div class="chev" aria-hidden="true">▾</div>
+      </div>
+      <div class="section-content" role="region" aria-hidden="true">
+        <div class="grid">
+          <div class="card">
+            <h4>Principales cannabinoides</h4>
+            <ul style="margin:8px 0 0 0; padding-left:18px; color:var(--muted)">
+              <li><strong>Δ9‑THC (THC)</strong>: principal psicoactivo. Efectos: euforia, alteración sensorial, analgesia, aumento del apetito. En planta suele estar en forma ácida (THCA) que no es psicoactiva hasta que se activa por calor (decarboxilación).</li>
+              <li><strong>CBD</strong>: no psicoactivo, apreciado por efectos ansiolíticos, antiinflamatorios y anticonvulsivantes en algunos usos clínicos. En planta puede aparecer como CBDA (precursor).</li>
+              <li><strong>CBG</strong> (y su precursor CBGA): "molde" biosintético de otros cannabinoides; investigado por propiedades antiinflamatorias y antibacterianas. El CBG también actúa sobre los receptores CB1 y CB2 del sistema endocannabinoide para producir sus bondades, no tiene el mismo efecto psicoactivo que el THC, ya que tiene una afinidad parcial por ellos. En términos de cómo de bien se conecta con los receptores CB1 y CB2, el CBG parece ser mucho más efectivo y directo que el CBD.</li>
+              <li><strong>CBN</strong>: producto de degradación del THC (oxidación/edad). Asociado a efectos sedantes leves.  Este cannabinoide se genera cuando el THC envejece, o bien, se oxida por el efecto del calor y la luz. Es decir, no altera la percepción ni embriaga como hace el Thc. Estudios preliminares muestran que el CBN podría ayudar en la regulación de procesos fisiológicos tan importantes como el sueño o el apetito(Da hambre).</li>
+              <li><strong>CBC, THCV, CBDV</strong> y otros: cannabinoides minoritarios con perfiles farmacológicos distintos y aún en investigación.</li>
+            </ul>
+            <p class="small" style="margin-top:8px">Nota: los perfiles exactos varían por genética, cultivo y procesamiento.</p>
+          </div>
+
+          <div class="card">
+            <h4>Terpenos y efecto conjunto</h4>
+            <p class="small">Los terpenos son compuestos aromáticos (p. ej. <em>mirceno, limoneno, pineno, linalool, cariofileno</em>) que influyen en aroma y —según la hipótesis del <em>entourage effect</em>— pueden modular los efectos de los cannabinoides.</p>
+            <p class="small" style="margin-top:8px"><strong>Ejemplos:</strong> Mirceno → perfil relajante; Limoneno → sensaciones más elevadas/animadas; Pineno → claridad mental. Esta relación no está establecida para todos los casos y depende de dosis y combinación.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="note">
+          <strong>Concepto clave — Decarboxilación:</strong> los cannabinoides en la planta suelen existir en forma ácida (THCA, CBDA). Al aplicar calor (p. ej. fumar, vaporizar o cocinar), se eliminan grupos carboxilo y se forman las formas activas (THC, CBD). Esto es una explicación conceptual, no una guía de uso.
+        </div>
+      </div>
+    </article>
+
+    <!-- EXTRACTIONS -->
+    <article id="sec-extracciones" class="section" aria-labelledby="h-extracciones">
+      <div class="section-header" role="button" tabindex="0">
+        <div>
+          <h3 id="h-extracciones">Formas de extracción (resumen conceptual)</h3>
+          <p class="small">Tipos de concentrados y cómo se clasifican — descripción no‑técnica.</p>
+        </div>
+        <div class="chev" aria-hidden="true">▾</div>
+      </div>
+
+      <div class="section-content" role="region" aria-hidden="true">
+        <div class="grid">
+          <div class="card">
+            <h4>Kief / Polen</h4>
+            <p class="small">Polen o kief: son tricomas (glándulas resinosas) separados mecánicamente de la materia vegetal por tamizado. Se usa tal cual o se prensa para hacer hachís. Rinde un concentrado con mayor proporción de cannabinoides que la flor.</p>
+          </div>
+
+          <div class="card">
+            <h4>Hash (HSH / Hashish / Bubble hash)</h4>
+            <p class="small">Hash: producto de compactar kief; incluye variantes como <em>bubble hash</em> (extracción con agua/ice) que separa tricomas por densidad. Por ser mayor concentración de tricomas, aumenta el porcentaje de cannabinoides comparado con la flor.</p>
+          </div>
+
+          <div class="card">
+            <h4>Rosin (solventless)</h4>
+            <p class="small">Rosin: resultado de aplicar calor y presión a flor o a kief para extraer resina sin solventes. Es solventless (sin disolventes) y conserva terpenos si se procesa correctamente.</p>
+          </div>
+
+          <div class="card">
+            <h4>Wax / Shatter / Live Resin (solvent‑based)</h4>
+            <p class="small">Son concentrados obtenidos con disolventes orgánicos o CO₂ en procesos industriales. Tienen alta potencia y diferentes texturas: <em>shatter</em> (vítreo), <em>wax</em> (más blando), <em>live resin</em> (procesa planta fresca para conservar terpenos). <strong>No proporciono instrucciones operativas sobre procesos con solventes.</strong></p>
+            <p class="small" style="color:var(--muted)">Estos procesos requieren instalaciones y normativa específica; realizarlos en casa es peligroso y puede ser ilegal.</p>
+          </div>
+
+          <div class="card">
+            <h4>Isolates y Distillates</h4>
+            <p class="small">Isolate: cannabinoide puro (p. ej. CBD isolate) casi sin otros compuestos (~95%+). Distillate: destilado con alta concentración del cannabinoide objetivo (THC o CBD) y poca fracción terpénica; se usa en vaporizadores y formulaciones.</p>
+          </div>
+
+          <div class="card">
+            <h4>Tinturas, aceite, comestibles y tópicos</h4>
+            <p class="small">Formas de presentación que usan extractos o aceites para aplicaciones orales, sublinguales o tópicas. Su efecto y biodisponibilidad difieren de fumar/vaporizar.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="note">
+          <strong>Riesgos y legalidad:</strong> las extracciones con solventes (butano, propano, etanol, CO₂ en industria) requieren instalaciones y controles para evitar explosiones y residuos. No intentes reproducir procesos peligrosos en casa: busca fabricantes autorizados y productos testados por laboratorio.
+        </div>
+
+        <div style="margin-top:12px">
+          <h4>Procesos comunes (explicación conceptual, NO operativa)</h4>
+          <ul style="color:var(--muted)">
+            <li><strong>Solventless:</strong> separación física de tricomas (tamizado, agitación en agua fría) o aplicación de calor/pressión (rosin).</li>
+            <li><strong>Solvent‑based:</strong> disolución de cannabinoides en un solvente y posterior separación/purificación en entornos industriales controlados.</li>
+            <li><strong>Refinamiento:</strong> procesos como winterización (eliminar grasas), decarboxilación (activar cannabinoides ácidos) y destilación (concentrar y purificar) se usan en la cadena industrial para obtener productos específicos.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- TIPOS DE CANNABIS -->
+    <article id="sec-tipos" class="section" aria-labelledby="h-tipos">
+      <div class="section-header" role="button" tabindex="0">
+        <div>
+          <h3 id="h-tipos">Tipos: Sativa, Índica, Híbrida — orígenes y efectos</h3>
+          <p class="small">Descripción histórica y características generales.</p>
+        </div>
+        <div class="chev" aria-hidden="true">▾</div>
+      </div>
+
+      <div class="section-content" role="region" aria-hidden="true">
+        <div class="grid">
+          <div class="card">
+            <h4>Sativa</h4>
+            <p class="small">Origen geográfico: regiones ecuatoriales y tropicales (África, Sudeste Asiático, Centroamérica). Morfología: plantas altas, hojas estrechas. Típicamente asociadas a efectos energizantes, creativos y de ánimo elevado; en muchos casos presentan ratios más altos de THC relativo a CBD (aunque hay excepciones).</p>
+          </div>
+
+          <div class="card">
+            <h4>Índica</h4>
+            <p class="small">Origen geográfico: Asia Central y subcontinental (Hindu Kush, Afganistán, Pakistán). Morfología: plantas más compactas, hojas anchas. Asociadas a efectos relajantes, sedantes y corporales; históricamente algunas variedades tienen más tendencia a CBD relativa, pero la selección moderna ha cambiado mucho estos rasgos.</p>
+
+          </div>
+
+          <div class="card">
+            <h4>Híbrida</h4>
+            <p class="small">Cruces controlados de sativa e índica; pueden orientarse a efectos energizantes, equilibrados o sedantes según la genética. La terminología "sativa/índica" hoy sirve más como guía de efecto que como clasificación botánica rigurosa.</p>
+          </div>
+        </div>
+
+  <div class="card">
+            <h4>Ruderalis</h4>
+            <p class="small">Origen geográfico:  Europa Central y Oriental, y Rusia. Morfología: es muy baja de estatura, a menudo entre 30cm y 80cm cuando ha alcanzado su pleno crecimiento. Produce solo unas pocas ramas y tiene hojas anchas y de limbos gruesos; su caracteristica principal es florecer en ambientes frios y con pocas horas de luz, pudiendo llegar a florecer con solo 2h de luz diaria.</p>
+          </div>
+
+        <div style="margin-top:12px" class="note">
+          <strong>Contexto:</strong> la mayor parte del cannabis comercial actual son híbridos seleccionados por rasgos (aroma, potencia, estructura de la planta), por lo que las generalizaciones sobre sativa/índica no siempre predicen efectos con precisión.
+        </div>
+      </div>
+    </article>
+
+    <!-- PERCENTAGES -->
+    <article id="sec-porcentajes" class="section" aria-labelledby="h-porcentajes">
+      <div class="section-header" role="button" tabindex="0">
+        <div>
+          <h3 id="h-porcentajes">Rangos aproximados de cannabinoides por tipo de producto</h3>
+          <p class="small">Valores orientativos — varían según genética, cultivo y laboratorio.</p>
+        </div>
+        <div class="chev" aria-hidden="true">▾</div>
+      </div>
+
+      <div class="section-content" role="region" aria-hidden="true">
+        <p class="small">Los porcentajes siguientes son estimaciones generales y deben entenderse como rangos típicos hallados en mercado/testeo; cada lote requiere análisis de laboratorio para valores exactos.</p>
+
+        <table aria-label="Tabla de porcentajes orientativos">
+          <thead>
+            <tr><th>Producto</th><th>Rango típico THC (%)</th><th>Rango típico CBD (%)</th><th>Observaciones</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Flor (cogollo)</td><td>5% — 30% (común 12–25%)</td><td>&lt;1% (salvo variedades CBD)</td><td>Muchísima variación por cepa y cultivo</td></tr>
+            <tr><td>Kief / Polen</td><td>20% — 60%</td><td>variable</td><td>Concentración mecánica de tricomas</td></tr>
+            <tr><td>Hash (pressed / bubble)</td><td>30% — 70%</td><td>variable</td><td>Depende de calidad del material y método</td></tr>
+            <tr><td>Rosin (solventless)</td><td>40% — 80%</td><td>variable</td><td>Conserva terpenos si se procesa bien</td></tr>
+            <tr><td>Wax / Shatter / Live Resin</td><td>60% — 90%+</td><td>variable</td><td>Solvent‑based; potentes</td></tr>
+            <tr><td>Distillate</td><td>80% — 95%+</td><td>&lt;1% (salvo destinados a CBD)</td><td>Producto muy purificado</td></tr>
+            <tr><td>Isolate (CBD/THC)</td><td>&gt;95% (si es isolate de THC)</td><td>&gt;95% (CBD isolate)</td><td>Prácticamente cannabinoide puro</td></tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top:12px" class="note">
+          <strong>Variabilidad:</strong> muchos factores (genética, fertilización, daño, almacenamiento, tiempo desde la cosecha) influyen en los números reales. Por eso es clave comprar productos con certificados/labs si necesitas datos exactos.
+        </div>
+      </div>
+    </article>
+
+    <!-- STRAINS -->
+    <article id="sec-cepas" class="section" aria-labelledby="h-cepas">
+      <div class="section-header" role="button" tabindex="0">
+        <div>
+          <h3 id="h-cepas">Cepas más consumidas — fichas resumidas</h3>
+          <p class="small">Pulsa en cada cepa para ver origen, rangos de cannabinoides y efectos típicos.</p>
+        </div>
+        <div class="chev" aria-hidden="true">▾</div>
+      </div>
+
+      <div class="section-content" role="region" aria-hidden="true">
+        <div class="strain-list">
+          <!-- Each strain is a compact item with a hidden detail panel -->
+          <div class="strain-item" id="s-ogk">
+            <div class="strain-meta">
+              <strong>OG Kush</strong>
+              <span class="small pill">Origen: EEUU (California) — híbrido clásico</span>
+              <span class="small" style="color:var(--muted)">Efecto: relajante, eufórico, terapéutico para estrés/dolor.</span>
+            </div>
+            <button class="toggle-detail" data-detail="d-ogk">Ver</button>
+          </div>
+          <div class="strain-detail card" id="d-ogk" style="display:none">
+            <p class="small"><strong>THC típico:</strong> 18% — 26% (varía). <strong>CBD:</strong> normalmente &lt;1%. OG Kush es una genética muy influyente en cruces modernos; potencia y aroma terroso/cítrico.</p>
+          </div>
+
+          <div class="strain-item" id="s-blue">
+            <div class="strain-meta">
+              <strong>Blue Dream</strong>
+              <span class="small pill">Origen: California — sativa híbrida</span>
+              <span class="small" style="color:var(--muted)">Efecto: equilibrado, creativo, suave para uso diurno.</span>
+            </div>
+            <button class="toggle-detail" data-detail="d-blue">Ver</button>
+          </div>
+          <div class="strain-detail card" id="d-blue" style="display:none">
+            <p class="small"><strong>THC:</strong> 17% — 24%. <strong>CBD:</strong> suele ser &lt;1%. Muy popular por perfil equilibrado y aroma afrutado.</p>
+          </div>
+
+          <div class="strain-item" id="s-gsc">
+            <div class="strain-meta">
+              <strong>Girl Scout Cookies (GSC)</strong>
+              <span class="small pill">Origen: EEUU — híbrida potente</span>
+              <span class="small" style="color:var(--muted)">Efecto: euforia+relajación; alta potencia.</span>
+            </div>
+            <button class="toggle-detail" data-detail="d-gsc">Ver</button>
+          </div>
+          <div class="strain-detail card" id="d-gsc" style="display:none">
+            <p class="small"><strong>THC:</strong> 18% — 28%. <strong>CBD:</strong> normalmente bajo. Nota: heterogeneidad según linaje.</p>
+          </div>
+
+          <div class="strain-item" id="s-whitew">
+            <div class="strain-meta">
+              <strong>White Widow</strong>
+              <span class="small pill">Origen: Países Bajos — clásico híbrido</span>
+              <span class="small" style="color:var(--muted)">Efecto: energético y cerebral, con matices relajantes.</span>
+            </div>
+            <button class="toggle-detail" data-detail="d-whitew">Ver</button>
+          </div>
+          <div class="strain-detail card" id="d-whitew" style="display:none">
+            <p class="small"><strong>THC:</strong> 15% — 21%. <strong>CBD:</strong> bajo. Históricamente apreciada en clubes y coffeeshops.</p>
+          </div>
+
+          <div class="strain-item" id="s-amnesia">
+            <div class="strain-meta">
+              <strong>Amnesia Haze</strong>
+              <span class="small pill">Origen: cruces sativa (Europa/Caribe)</span>
+              <span class="small" style="color:var(--muted)">Efecto: potente y cerebral, sensación eufórica.</span>
+            </div>
+            <button class="toggle-detail" data-detail="d-amnesia">Ver</button>
+          </div>
+          <div class="strain-detail card" id="d-amnesia" style="display:none">
+            <p class="small"><strong>THC:</strong> 18% — 25%. <strong>CBD:</strong> bajo. Muy valorada por sus efectos sativa-dominantes.</p>
+          </div>
+
+          <div class="strain-item" id="s-sourd">
+            <div class="strain-meta">
+              <strong>Sour Diesel</strong>
+              <span class="small pill">Origen: EEUU — sativa</span>
+              <span class="small" style="color:var(--muted)">Efecto: enérgico, ideal para día y creatividad.</span>
+            </div>
+            <button class="toggle-detail" data-detail="d-sourd">Ver</button>
+          </div>
+          <div class="strain-detail card" id="d-sourd" style="display:none">
+            <p class="small"><strong>THC:</strong> 18% — 24%. <strong>CBD:</strong> bajo. Aroma diésel característico.</p>
+          </div>
+
+          <div class="strain-item" id="s-nlights">
+            <div class="strain-meta">
+              <strong>Northern Lights</strong>
+              <span class="small pill">Origen: Afganistán/Holanda — índica</span>
+              <span class="small" style="color:var(--muted)">Efecto: profundamente relajante y sedante.</span>
+            </div>
+            <button class="toggle-detail" data-detail="d-nlights">Ver</button>
+          </div>
+          <div class="strain-detail card" id="d-nlights" style="display:none">
+            <p class="small"><strong>THC:</strong> 16% — 22%. <strong>CBD:</strong> variable. Clásica entre variedades índicas por su efecto corporal.</p>
+          </div>
+
+          <div class="strain-item" id="s-jack">
+            <div class="strain-meta">
+              <strong>Jack Herer</strong>
+              <span class="small pill">Origen: híbrido sativa (Holanda)</span>
+              <span class="small" style="color:var(--muted)">Efecto: claro, creativo, mentalmente estimulante.</span>
+            </div>
+            <button class="toggle-detail" data-detail="d-jack">Ver</button>
+          </div>
+          <div class="strain-detail card" id="d-jack" style="display:none">
+            <p class="small"><strong>THC:</strong> 15% — 22%. <strong>CBD:</strong> bajo. Muy apreciada por efectos "limpios".</p>
+          </div>
+
+          <!-- add more strains as needed -->
+        </div>
+
+        <div style="margin-top:12px" class="note">
+          <strong>Nota:</strong> los valores son orientativos. La misma cepa puede mostrar grandes diferencias entre cultivadores y lotes.
+        </div>
+      </div>
+    </article>
+
+    <!-- LEGAL & SAFETY -->
+    <article id="sec-legal" class="section" aria-labelledby="h-legal">
+      <div class="section-header" role="button" tabindex="0">
+        <div>
+          <h3 id="h-legal">Legalidad, seguridad y recomendaciones</h3>
+          <p class="small">Consejos y advertencias importantes.</p>
+        </div>
+        <div class="chev" aria-hidden="true">▾</div>
+      </div>
+
+      <div class="section-content" role="region" aria-hidden="true">
+        <div class="grid">
+          <div class="card">
+            <h4>Legalidad</h4>
+            <p class="small">El estatus legal del cannabis y sus derivados varía enormemente: desde mercados regulados (uso medicinal/recreativo) hasta prohibiciones totales. Consulta siempre la normativa local antes de comprar, portar o procesar cannabis.</p>
+          </div>
+
+          <div class="card">
+            <h4>Seguridad</h4>
+            <p class="small">No intentes realizar extracciones con solventes en domicilios: riesgo de incendios, explosiones y contaminación por residuos. Los procesos industriales se realizan en instalaciones controladas y con pruebas de laboratorio para asegurar pureza y ausencia de solventes residuales.</p>
+          </div>
+
+          <div class="card">
+            <h4>Compra responsable</h4>
+            <p class="small">Prefiere productos con certificados de laboratorio (COA) que indiquen contenido de THC/CBD, presencia de pesticidas, hongos y residuos de solventes. Consulta a profesionales sanitarios para usos médicos.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="note warn">
+          ADVERTENCIA: La información en esta página es de carácter educativo y descriptivo. No es una guía para producir concentrados ni una recomendación de uso. Respeta la ley y las normas de seguridad.
+        </div>
+      </div>
+    </article>
+
+    <footer>
+      <div style="max-width:900px; margin:auto">
+        <p>© 2025 — Blog del Cannabis (información orientativa). Grasshoper420. </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Acciones de UI: acordeón + toggles de cepas
+    (function(){
+      // section headers toggling (open one at a time)
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => {
+        const header = sec.querySelector('.section-header');
+        const content = sec.querySelector('.section-content');
+        const chev = sec.querySelector('.chev');
+
+        function toggle(openFromNav=false){
+          const isOpen = sec.classList.contains('open');
+          // close all
+          document.querySelectorAll('.section.open').forEach(s => {
+            s.classList.remove('open');
+            s.querySelector('.section-content').setAttribute('aria-hidden','true');
+            s.querySelector('.chev').style.transform = 'rotate(0deg)';
+          });
+          if(!isOpen || openFromNav){
+            sec.classList.add('open');
+            content.setAttribute('aria-hidden','false');
+            chev.style.transform = 'rotate(180deg)';
+            // smooth scroll into view
+            setTimeout(()=> sec.scrollIntoView({behavior:'smooth', block:'start'}), 120);
+          }
+        }
+
+        header.addEventListener('click', ()=> toggle());
+        header.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+      });
+
+      // nav buttons: open target section
+      document.querySelectorAll('.nav-btn[data-target]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const id = btn.getAttribute('data-target');
+          const target = document.getElementById(id);
+          if(target){
+            // simulate open
+            const header = target.querySelector('.section-header');
+            header.click();
+          } else {
+            // if nav btn inside hero
+            const target2 = document.getElementById(id);
+            if(target2) target2.querySelector('.section-header').click();
+          }
+        });
+      });
+
+      // strain toggles
+      document.querySelectorAll('.toggle-detail').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const detailId = btn.getAttribute('data-detail');
+          const el = document.getElementById(detailId);
+          if(!el) return;
+          if(el.style.display === 'none' || el.style.display === ''){
+            el.style.display = 'block';
+            btn.textContent = 'Ocultar';
+            // scroll into view a bit
+            setTimeout(()=> el.scrollIntoView({behavior:'smooth', block:'center'}), 80);
+          } else {
+            el.style.display = 'none';
+            btn.textContent = 'Ver';
+          }
+        });
+      });
+
+      // accessible chevrons initial state
+      document.querySelectorAll('.section .chev').forEach(c => c.style.transform = 'rotate(0deg)');
+    })();
+  </script>
+</body>
+</html>

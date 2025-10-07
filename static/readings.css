@@ -1,0 +1,193 @@
+/* Estilos para el sistema de guardado de lecturas */
+
+#readingsHistory {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 500px;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a3a2d, #0a2e1a);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: none;
+    flex-direction: column;
+    color: #e0ffe0;
+    font-family: 'Cinzel', serif;
+}
+
+#readingsHistory.show {
+    right: 0;
+    display: flex !important;
+}
+
+.history-header {
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #b6ffb6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #b6ffb6;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+.history-controls {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(127,255,167,0.2);
+}
+
+.history-btn {
+    background: rgba(127,255,167,0.1);
+    border: 1px solid rgba(127,255,167,0.3);
+    color: #7fffa7;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cinzel', serif;
+}
+
+.history-btn:hover {
+    background: rgba(127,255,167,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(127,255,167,0.2);
+}
+
+.readings-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.reading-item {
+    background: rgba(127,255,167,0.05);
+    border: 1px solid rgba(127,255,167,0.1);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.reading-item:hover {
+    background: rgba(127,255,167,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10,46,26,0.3);
+}
+
+.reading-info {
+    flex: 1;
+}
+
+.reading-date {
+    color: #7fffa7;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.reading-type {
+    color: #e0ffe0;
+    font-size: 0.85em;
+}
+
+.reading-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.export-pdf-btn,
+.delete-btn {
+    background: none;
+    border: 1px solid rgba(127,255,167,0.3);
+    color: #7fffa7;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cinzel', serif;
+}
+
+.export-pdf-btn:hover {
+    background: rgba(127,255,167,0.2);
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    color: #ff6b6b;
+    border-color: rgba(255,107,107,0.3);
+}
+
+.delete-btn:hover {
+    background: rgba(255,107,107,0.2);
+    transform: translateY(-1px);
+}
+
+.toggle-history-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #1a3a2d, #0a2e1a);
+    border: 1px solid rgba(127,255,167,0.3);
+    border-radius: 25px;
+    color: #7fffa7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-history-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(10,46,26,0.4);
+    border-color: rgba(127,255,167,0.5);
+}
+
+.history-icon {
+    font-size: 1.2em;
+}
+
+/* Personalización de la barra de desplazamiento */
+.readings-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.readings-list::-webkit-scrollbar-track {
+    background: rgba(127,255,167,0.05);
+}
+
+.readings-list::-webkit-scrollbar-thumb {
+    background: rgba(127,255,167,0.2);
+    border-radius: 4px;
+}
+
+.readings-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(127,255,167,0.3);
+}

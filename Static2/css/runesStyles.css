@@ -1,0 +1,810 @@
+/* runesStyles.css - Estilos base para la aplicación de runas */
+
+/* Estilos para los botones */
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-top: -2px;
+}
+
+/* Estilos para las interpretaciones de runas */
+.interpretation-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 4rem auto 2rem;
+    padding: 0 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .interpretation-container {
+        margin: 2rem auto 1rem;
+        padding: 0 0.5rem;
+    }
+}
+
+.spread-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: var(--glowA);
+}
+
+@media screen and (max-width: 768px) {
+    .spread-title {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+    }
+}
+
+.spread-title h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.3);
+}
+
+.spread-description {
+    color: var(--text);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.general-interpretation {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: var(--glowA);
+}
+
+@media screen and (max-width: 768px) {
+    .general-interpretation {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+}
+
+.interpretation-title {
+    color: var(--primary);
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 224, 255, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .interpretation-title {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+    }
+}
+
+.general-reading {
+    color: var(--text);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+@media screen and (max-width: 768px) {
+    .general-reading {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+.general-reading p {
+    margin-bottom: 1.5rem;
+}
+
+.flow-text, .timeline, .current-state, .future-path, .guidance,
+.source, .resources, .outcome, .dynamics {
+    padding: 1rem;
+    background: rgba(0, 255, 200, 0.05);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 255, 200, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .flow-text, .timeline, .current-state, .future-path, .guidance,
+    .source, .resources, .outcome, .dynamics {
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+.synthesis {
+    font-style: italic;
+    color: var(--primary);
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 224, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 224, 255, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .synthesis {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+.rune-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rune-list li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(0, 255, 200, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 200, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .rune-list li {
+        margin-bottom: 0.8rem;
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+.rune-list strong {
+    color: var(--primary);
+    margin-right: 0.5rem;
+}
+
+.rune-meaning {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: var(--glowA);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.rune-meaning:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
+    box-shadow: var(--glowB);
+}
+
+.rune-meaning:hover {
+    border-left-color: rgba(0, 255, 200, 0.8);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.rune-meaning h3 {
+    color: #00ffc3;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 255, 195, 0.3);
+}
+
+.rune-meaning p {
+    margin: 1.2rem 0;
+    line-height: 1.8;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+}
+
+.rune-meaning strong {
+    color: #00e0ff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 8px rgba(0, 224, 255, 0.3);
+}
+
+.position-interpretation {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 255, 200, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 200, 0.1);
+    font-style: italic;
+    color: #e0e0e0;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    box-shadow: inset 0 0 20px rgba(0, 255, 195, 0.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .interpretation {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .rune-meaning {
+        padding: 0.8rem;
+    }
+
+    .rune-meaning h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animaciones */
+.rune-meaning {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para diferentes tipos de tirada */
+.spread-container {
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+.spread-grid {
+    display: grid;
+    gap: 2.5rem;
+    padding: 3rem 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: var(--glowA);
+    justify-items: center;
+    align-items: center;
+    grid-auto-rows: min-content;
+    margin-bottom: 3rem;
+}
+
+/* Tirada de las Tres Nornas */
+.spread-grid.spread-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Tirada en Cruz */
+.spread-grid.spread-5 {
+    grid-template-areas:
+        ". norte ."
+        "oeste centro este"
+        ". sur .";
+    justify-items: center;
+}
+
+.spread-cruz .rune-container:nth-child(1) { grid-area: centro; }
+.spread-cruz .rune-container:nth-child(2) { grid-area: norte; }
+.spread-cruz .rune-container:nth-child(3) { grid-area: este; }
+.spread-cruz .rune-container:nth-child(4) { grid-area: sur; }
+.spread-cruz .rune-container:nth-child(5) { grid-area: oeste; }
+
+/* Tirada Aurora */
+.spread-6.spread-aurora {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* Tirada Herradura */
+.spread-grid.spread-7 {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas:
+        ".      p2     p1     pres    f1     f2     ."
+        ".      .      .      cons    .      .      ."
+        ".      .      .      sint    .      .      .";
+    gap: 2rem 1.5rem;
+    padding: 4rem 2rem;
+}
+
+/* Asignación de áreas para la herradura */
+.spread-grid.spread-7 .rune-container:nth-child(1) { grid-area: p2; }     /* Pasado Lejano */
+.spread-grid.spread-7 .rune-container:nth-child(2) { grid-area: p1; }     /* Pasado Cercano */
+.spread-grid.spread-7 .rune-container:nth-child(3) { grid-area: pres; }   /* Presente */
+.spread-grid.spread-7 .rune-container:nth-child(4) { grid-area: f1; }     /* Futuro Cercano */
+.spread-grid.spread-7 .rune-container:nth-child(5) { grid-area: f2; }     /* Futuro Lejano */
+.spread-grid.spread-7 .rune-container:nth-child(6) { grid-area: cons; }   /* Consejo */
+.spread-grid.spread-7 .rune-container:nth-child(7) { grid-area: sint; }   /* Síntesis */
+
+/* Ajustes responsive para la herradura */
+@media (max-width: 768px) {
+    .spread-grid.spread-7 {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "p2     p1     pres"
+            "f1     f2     ."
+            ".      cons   ."
+            ".      sint   .";
+        gap: 2rem;
+        padding: 2rem;
+    }
+}
+
+/* Estilo para las runas individuales */
+.rune-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    aspect-ratio: 1;
+    width: 100px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Ajustes específicos para la tirada de herradura */
+.spread-grid.spread-7 .rune-container {
+    width: 90px;
+}
+
+.rune-card {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rune-card.revealed {
+    transform: rotateY(180deg);
+}
+
+.rune-card.inverted img {
+    transform: rotate(180deg);
+}
+
+.rune-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Cambiado de cover a contain para mantener la proporción */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Quitado el borde y el fondo rectangular */
+    filter: drop-shadow(0 0 10px rgba(0, 224, 255, 0.2));  /* Sombra suave con glow */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .spread-container {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .spread-3.spread-nornas {
+        grid-template-columns: 1fr;
+    }
+
+    .spread-5.spread-cruz {
+        grid-template-areas:
+            "norte norte"
+            "oeste centro este"
+            "sur sur";
+        justify-items: center;
+        gap: 1.5rem;
+    }
+    
+    .spread-7.spread-herradura {
+        grid-template-areas:
+            "pasado2 pasado1"
+            "presente presente"
+            "futuro1 futuro2"
+            "consejo consejo"
+            "sintesis sintesis";
+        justify-items: center;
+        gap: 1.5rem;
+    }
+    
+    .spread-6.spread-aurora {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        justify-items: center;
+    }
+
+    .rune-card {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+:root {
+    --bg: #05070b;
+    --primary: #00e0ff;     /* azul eléctrico */
+    --accent: #00ff9d;      /* verde neón */
+    --text: #e6fffb;
+    --muted: #8fbfb8;
+    --card: rgba(10,16,24,.45);
+    --border: rgba(0,255,193,.18);
+    --glowA: 0 0 12px rgba(0,224,255,.55), 0 0 28px rgba(0,255,157,.35);
+    --glowB: 0 0 24px rgba(0,255,157,.55), 0 0 48px rgba(0,224,255,.35);
+}
+
+/* Estilos base */
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: radial-gradient(1200px 800px at 70% 10%, #05131a 0%, #05070b 40%, #04050a 100%), #05070b;
+    color: var(--text);
+    font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Contenedor principal */
+.wrap {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 48px 20px;
+}
+
+/* Card container */
+.card {
+    width: min(1100px, 92vw);
+    background: linear-gradient(180deg, rgba(0,255,183,.07), rgba(0,224,255,.05));
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: var(--glowA);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 28px 28px 34px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Headers */
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 800;
+    letter-spacing: .5px;
+    font-size: clamp(28px, 4.2vw, 46px);
+    margin: 0;
+}
+
+.subtitle {
+    margin: 2px 0 0;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: .4px;
+}
+
+/* Controles */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 18px 0 6px;
+}
+
+.sel {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: linear-gradient(90deg, rgba(0,255,157,.15), rgba(0,224,255,.15));
+    color: var(--text);
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    box-shadow: var(--glowA);
+    cursor: pointer;
+    font-size: 1em;
+    min-width: 280px;
+}
+
+.sel:focus {
+    outline: 2px solid rgba(0,224,255,.35);
+}
+
+.sel option {
+    background: #05070b;
+    color: var(--text);
+    padding: 8px;
+    font-size: 0.95em;
+}
+
+/* Botones */
+.btn {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: linear-gradient(90deg, rgba(0,255,157,.1), rgba(0,224,255,.1));
+    color: var(--text);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: .2s transform ease, .25s box-shadow ease, .2s background-color ease;
+    box-shadow: var(--glowA);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--glowB);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Runas */
+.rune-card {
+    background: linear-gradient(180deg, rgba(0,255,183,.06), rgba(0,224,255,.04));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px 14px 16px;
+    text-align: center;
+    box-shadow: var(--glowA);
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rune-img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 8px rgba(0,255,193,.45));
+    transition: transform 0.3s ease;
+}
+
+.rune-img:hover {
+    transform: scale(1.1) translateY(-5px);
+}
+
+.rune-name {
+    margin: 12px 0 8px;
+    font-weight: 700;
+    color: #bfffee;
+    letter-spacing: .5px;
+    font-size: 1.1em;
+}
+
+.position-meaning {
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(0,255,157,.08);
+    font-size: 0.9em;
+    color: #bfffee;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .sel {
+        width: 100%;
+    }
+
+    .rune-card {
+        min-height: 200px;
+    }
+}
+
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* Info button */
+.btn-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(0,255,157,.2), rgba(0,224,255,.2));
+    border: 1px solid var(--border);
+    color: var(--primary);
+    font-size: 20px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: .2s all ease;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5,7,11,.95);
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    margin: auto;
+    width: min(800px, 90vw);
+    max-height: 85vh;
+    overflow-y: auto;
+    background: linear-gradient(180deg, rgba(0,255,183,.08), rgba(0,224,255,.06));
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    box-shadow: var(--glowA);
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0,255,157,.05);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 24px;
+    transition: .2s color ease;
+}
+
+.modal-close:hover {
+    color: var(--primary);
+}
+
+.modal h2 {
+    margin: 0 0 16px;
+    color: var(--primary);
+    font-family: "Space Grotesk", sans-serif;
+}
+
+/* Search styles */
+.search-container {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    padding: 4px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(0,255,157,.1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: var(--glowA);
+}
+
+/* Info spread styles */
+.spread-info {
+    margin: 16px 0;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(0,255,157,.05);
+}
+
+.spread-info h3 {
+    margin: 0 0 8px;
+    color: #bfffee;
+}
+
+.spread-info p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* Interpretation styles */
+.interpretation {
+    background: linear-gradient(180deg, rgba(0,255,183,.08), rgba(0,224,255,.06));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 24px;
+}
+
+.interpretation h3 {
+    color: var(--primary);
+    margin: 0 0 16px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.interpretation p {
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+}
+
+footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

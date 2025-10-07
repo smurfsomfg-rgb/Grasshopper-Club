@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normas del Establecimiento</title>
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="position:fixed;top:18px;right:24px;z-index:9999;"></div>
+    <script type="text/javascript">
+    // Función que se llamará cuando el script de Google Translate se cargue
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,fr,de,it,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+        gaTrack: true,
+        gaId: 'UA-XXXXX-X'
+      }, 'google_translate_element');
+    }
+
+    // Cargar el script de Google Translate
+    function loadGoogleTranslate() {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.onerror = function() {
+        console.error('Error al cargar Google Translate');
+        document.getElementById('google_translate_element').innerHTML = 
+          '<select style="padding:8px 14px;border-radius:8px;font-weight:600;background:#fff;color:#222;border:1px solid #ccc;" ' +
+          'onchange="window.location.href=\'https://translate.google.com/translate?sl=es&tl=\'+this.value+\'&u=\'+encodeURIComponent(window.location.href)">' +
+          '<option value="es">Español</option>' +
+          '<option value="en">English</option>' +
+          '<option value="fr">Français</option>' +
+          '<option value="de">Deutsch</option>' +
+          '<option value="it">Italiano</option>' +
+          '</select>';
+      };
+      document.body.appendChild(script);
+    }
+
+    // Cargar Google Translate cuando la página esté lista
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadGoogleTranslate);
+    } else {
+      loadGoogleTranslate();
+    }
+    </script>
+    <style>
+        .top-bar {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: linear-gradient(90deg, rgba(35,96,40,0.95), rgba(43,176,95,0.95));
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 6px 18px rgba(4,7,5,0.45);
+        }
+        .top-bar h1 {
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            font-size: 2rem;
+            text-shadow: 
+                2px 2px 0 #1a7740,
+                -2px -2px 0 #1a7740,
+                2px -2px 0 #1a7740,
+                -2px 2px 0 #1a7740,
+                0 2px 0 #1a7740,
+                2px 0 0 #1a7740,
+                0 -2px 0 #1a7740,
+                -2px 0 0 #1a7740,
+                0 4px 8px rgba(0,0,0,0.4);
+            letter-spacing: 1px;
+            font-weight: 800;
+            transform: translateZ(0);
+            transition: text-shadow 0.3s ease;
+        }
+        .top-bar h1:hover {
+            text-shadow: 
+                2px 2px 0 #1a7740,
+                -2px -2px 0 #1a7740,
+                2px -2px 0 #1a7740,
+                -2px 2px 0 #1a7740,
+                0 2px 0 #1a7740,
+                2px 0 0 #1a7740,
+                0 -2px 0 #1a7740,
+                -2px 0 0 #1a7740,
+                0 6px 12px rgba(0,0,0,0.6);
+        }
+        .buttons-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            border: 1px solid rgba(255,255,255,0.06);
+            background: transparent;
+            color: #edf7ee;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all .18s ease;
+            box-shadow: none;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            background: rgba(255,255,255,0.04);
+        }
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        :root {
+            --bg: #0f1113;
+            --panel: #141618;
+            --accent: #27ae60;
+            --muted: #9aa5a1;
+            --glass: rgba(255,255,255,0.03);
+            --card: #191b1d;
+        }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg,#071014 0%, var(--bg) 100%);
+            color: #e6efe9;
+        }
+        h1 {
+            font-size: 1.3rem;
+            margin: 38px 0 0 0;
+            font-weight: 600;
+            text-align: center;
+            color: var(--accent);
+        }
+        .rules-box {
+            background: var(--panel);
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 32px 24px;
+            box-shadow: 0 8px 26px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+        p {
+            font-size: 1.08em;
+            color: #e6efe9;
+            margin: 0 0 18px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <h1>Normas del Establecimiento</h1>
+        <div class="buttons-container">
+            <button class="btn" onclick="location.href='index.html'">🏠 Inicio</button>
+            <button class="btn" onclick="location.href='abc.html'">🔤 ABC Cannabis</button>
+            <button class="btn" onclick="location.href='rules.html'">📜 Reglas Club</button>
+            <button class="btn" onclick="location.href='tipos.html'">🌿 Tipos</button>
+            <button class="btn" onclick="location.href='Eventos.html'">📅 Eventos</button>
+            <button class="btn" onclick="location.href='Sobredosis.html'">⚠️ Sobredosis</button>
+            <button class="btn" onclick="location.href='hub.html'">🌟 Portal Místico</button>
+        </div>
+    </div>
+    
+    <div class="rules-box">
+        <p>1. Respeta a todos los miembros y visitantes del establecimiento.</p>
+        <p>2. Está prohibido fumar en áreas no designadas.</p>
+        <p>3. Mantén la limpieza y orden en todas las instalaciones.</p>
+        <p>4. El consumo de productos está permitido solo para mayores de edad.</p>
+        <p>5. Sigue las indicaciones del personal en todo momento.</p>
+        <p>6. No se permite la entrada de bebidas alcohólicas externas.</p>
+        <p>7. Cuida y respeta el mobiliario y los recursos del local.</p>
+        <p>8. Ante cualquier duda, consulta con el personal autorizado.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+@media print {
+    /* Configuración básica de página */
+    @page {
+        margin: 2cm;
+        size: A4 portrait;
+    }
+
+    /* Ajustes globales */
+    body {
+        background: white !important;
+        color: black !important;
+        font-family: 'Times New Roman', serif !important;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        max-width: 210mm; /* Ancho de A4 */
+        margin: 0 auto;
+    }
+
+    /* Asegurar que el texto se ajuste */
+    p {
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        max-width: 100%;
+        margin: 0.5em 0;
+    }
+
+    /* Ocultar elementos innecesarios */
+    header button,
+    .header-buttons,
+    .search-overlay,
+    .search-container,
+    .modal,
+    footer,
+    #copyBtn,
+    #pdfBtn,
+    #toggleSearch,
+    #toggleHistory {
+        display: none !important;
+    }
+
+    /* Título principal */
+    h1 {
+        text-align: center;
+        font-size: 24pt;
+        margin: 20px 0;
+        color: black !important;
+        border-bottom: 1pt solid black;
+        padding-bottom: 10px;
+    }
+
+    /* Contenedor de cartas */
+    #cards {
+        margin: 20px auto;
+        width: 100%;
+        display: block !important;
+    }
+
+    /* Estilo de cada carta */
+    .card {
+        background: white !important;
+        border: 1pt solid #333 !important;
+        padding: 15px !important;
+        margin-bottom: 30px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        border-radius: 8pt !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        box-shadow: none !important;
+    }
+
+    /* Imagen de la carta */
+    .card img {
+        width: 120px !important;
+        height: auto !important;
+        object-fit: contain !important;
+        margin-right: 15px !important;
+        border: 1pt solid #666 !important;
+        border-radius: 4pt !important;
+    }
+
+    /* Contenido textual de la carta */
+    .card-content {
+        flex: 1;
+    }
+
+    /* Título de la carta */
+    .card-title {
+        font-size: 14pt !important;
+        font-weight: bold !important;
+        color: black !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* Posición de la carta */
+    .card-pos {
+        font-style: italic !important;
+        color: #333 !important;
+        margin-bottom: 10px !important;
+        font-size: 12pt !important;
+    }
+
+    /* Significados */
+    .card-meaning,
+    .pos-meaning {
+        color: black !important;
+        font-size: 11pt !important;
+        margin-top: 8px !important;
+        line-height: 1.4 !important;
+        text-align: justify !important;
+    }
+
+    /* Resumen grupal */
+    #summary {
+        page-break-before: always !important;
+        margin-top: 30px !important;
+        padding: 20px !important;
+        border: 1pt solid #333 !important;
+        border-radius: 8pt !important;
+    }
+
+    #summary h2 {
+        color: black !important;
+        font-size: 16pt !important;
+        margin-bottom: 15px !important;
+        text-align: center !important;
+        border-bottom: 1pt solid #333 !important;
+        padding-bottom: 8px !important;
+    }
+
+    #summary div {
+        color: black !important;
+        font-size: 11pt !important;
+        line-height: 1.5 !important;
+        text-align: justify !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Asegurar que los elementos HR sean visibles */
+    hr {
+        border: none !important;
+        border-top: 1pt solid #333 !important;
+        margin: 15px 0 !important;
+    }
+
+    /* Mejorar la visibilidad de los enlaces */
+    a {
+        color: black !important;
+        text-decoration: underline !important;
+    }
+
+    /* Ajustes adicionales para garantizar la legibilidad */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Asegurar que las cartas invertidas se muestren correctamente */
+    .card img[style*="transform: rotate(180deg)"] {
+        transform: rotate(180deg) !important;
+        -webkit-transform: rotate(180deg) !important;
+        -ms-transform: rotate(180deg) !important;
+    }
+}

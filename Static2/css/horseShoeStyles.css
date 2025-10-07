@@ -1,0 +1,221 @@
+/* Estilos específicos para la tirada de la Herradura */
+.horseshoe-interpretation {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .horseshoe-interpretation {
+        padding: 1rem;
+        gap: 1rem;
+        margin: 0;
+        border-radius: 10px;
+    }
+}
+
+.horseshoe-interpretation .section {
+    padding: 1.5rem;
+    background: rgba(0, 20, 40, 0.3);
+    border-radius: 10px;
+    border-left: 3px solid rgba(0, 224, 255, 0.3);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .horseshoe-interpretation .section {
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 8px;
+    }
+}
+
+.horseshoe-interpretation h3 {
+    color: #00e0ff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    word-wrap: break-word;
+}
+
+@media screen and (max-width: 768px) {
+    .horseshoe-interpretation h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+.horseshoe-interpretation .rune-analysis {
+    line-height: 1.6;
+    color: #e0f0ff;
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .horseshoe-interpretation .rune-analysis {
+        line-height: 1.4;
+        font-size: 0.95rem;
+        text-align: left;
+    }
+}
+
+.horseshoe-interpretation .guidance-list,
+.horseshoe-interpretation .advice-list {
+    list-style-type: none;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .horseshoe-interpretation .guidance-list,
+    .horseshoe-interpretation .advice-list {
+        padding-left: 1rem;
+        margin: 0.8rem 0;
+    }
+}
+
+.horseshoe-interpretation .guidance-list li,
+.horseshoe-interpretation .advice-list li {
+    margin: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 768px) {
+    .horseshoe-interpretation .guidance-list li,
+    .horseshoe-interpretation .advice-list li {
+        margin: 0.4rem 0;
+        padding-left: 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+.horseshoe-interpretation .guidance-list li::before,
+.horseshoe-interpretation .advice-list li::before {
+    content: "✧";
+    color: #00e0ff;
+    position: absolute;
+    left: 0;
+}
+
+.horseshoe-interpretation .action-items {
+    list-style-type: none;
+    padding-left: 2rem;
+}
+
+.horseshoe-interpretation .action-items li {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #c0e0ff;
+    position: relative;
+    padding-left: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.horseshoe-interpretation .action-items li::before {
+    content: "→";
+    color: #00e0ff;
+    position: absolute;
+    left: 0;
+}
+
+.horseshoe-interpretation .section.patterns,
+.horseshoe-interpretation .section.recommendations {
+    background: rgba(0, 40, 60, 0.3);
+    margin-top: 1rem;
+}
+
+.horseshoe-interpretation .elemental-patterns,
+.horseshoe-interpretation .runic-relationships,
+.horseshoe-interpretation .energy-flow {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 224, 255, 0.1);
+}
+
+.horseshoe-interpretation strong {
+    color: #80f0ff;
+    font-weight: 600;
+}
+
+/* Efectos de hover */
+.horseshoe-interpretation .section:hover {
+    border-left-color: rgba(0, 255, 200, 0.5);
+    background: rgba(0, 30, 50, 0.4);
+    transform: translateX(5px);
+}
+
+.horseshoe-interpretation .action-items li:hover {
+    transform: translateX(5px);
+    color: #fff;
+}
+
+/* Animaciones de entrada */
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.horseshoe-interpretation .section {
+    animation: sectionFadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    animation-fill-mode: both;
+}
+
+/* Retardo escalonado para las secciones */
+.horseshoe-interpretation .section:nth-child(1) { animation-delay: 0.1s; }
+.horseshoe-interpretation .section:nth-child(2) { animation-delay: 0.2s; }
+.horseshoe-interpretation .section:nth-child(3) { animation-delay: 0.3s; }
+.horseshoe-interpretation .section:nth-child(4) { animation-delay: 0.4s; }
+.horseshoe-interpretation .section:nth-child(5) { animation-delay: 0.5s; }
+.horseshoe-interpretation .section:nth-child(6) { animation-delay: 0.6s; }
+.horseshoe-interpretation .section:nth-child(7) { animation-delay: 0.7s; }
+.horseshoe-interpretation .section:nth-child(8) { animation-delay: 0.8s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .horseshoe-interpretation {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .horseshoe-interpretation .section {
+        padding: 1rem;
+    }
+
+    .horseshoe-interpretation h3 {
+        font-size: 1.1rem;
+    }
+    
+    .horseshoe-interpretation .rune-analysis {
+        font-size: 0.95rem;
+    }
+
+    .horseshoe-interpretation .guidance-list,
+    .horseshoe-interpretation .advice-list {
+        padding-left: 1rem;
+    }
+}

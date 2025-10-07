@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GrassHopperSocialClub</title>
+	<style>
+		:root {
+			--bg: #0f1113;
+			--panel: #141618;
+			--accent: #27ae60;
+			--muted: #9aa5a1;
+			--glass: rgba(255,255,255,0.03);
+			--card: #191b1d;
+		}
+		body {
+			margin: 0;
+			font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+			background: linear-gradient(180deg,#071014 0%, var(--bg) 100%);
+			color: #e6efe9;
+		}
+		.top-bar {
+			position: sticky;
+			top: 0;
+			z-index: 30;
+			background: linear-gradient(90deg, rgba(35,96,40,0.95), rgba(43,176,95,0.95));
+			padding: 18px 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 16px;
+			box-shadow: 0 6px 18px rgba(4,7,5,0.45);
+		}
+		.top-bar h1 {
+			margin: 0 0 10px 0;
+			color: #ffffff;
+			font-size: 2rem;
+			text-shadow: 
+				2px 2px 0 #1a7740,
+				-2px -2px 0 #1a7740,
+				2px -2px 0 #1a7740,
+				-2px 2px 0 #1a7740,
+				0 2px 0 #1a7740,
+				2px 0 0 #1a7740,
+				0 -2px 0 #1a7740,
+				-2px 0 0 #1a7740,
+				0 4px 8px rgba(0,0,0,0.4);
+			letter-spacing: 1px;
+			font-weight: 800;
+			transform: translateZ(0);
+			transition: text-shadow 0.3s ease;
+		}
+		.top-bar h1:hover {
+			text-shadow: 
+				2px 2px 0 #1a7740,
+				-2px -2px 0 #1a7740,
+				2px -2px 0 #1a7740,
+				-2px 2px 0 #1a7740,
+				0 2px 0 #1a7740,
+				2px 0 0 #1a7740,
+				0 -2px 0 #1a7740,
+				-2px 0 0 #1a7740,
+				0 6px 12px rgba(0,0,0,0.6);
+		}
+		.buttons-container {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.btn {
+			border: 1px solid rgba(255,255,255,0.06);
+			background: transparent;
+			color: #edf7ee;
+			padding: 12px 20px;
+			border-radius: 8px;
+			cursor: pointer;
+			font-weight: 600;
+			font-size: 1.1em;
+			transition: all .18s ease;
+			box-shadow: none;
+		}
+		.btn:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+			background: rgba(255,255,255,0.04);
+		}
+		.btn:active {
+			transform: translateY(-1px);
+		}
+		h1 {
+			font-size: 1.3rem;
+			margin: 38px 0 0 0;
+			font-weight: 600;
+			text-align: center;
+		}
+		@media (max-width:680px) {
+			.top-bar {
+				padding: 12px;
+				gap: 12px;
+			}
+			.buttons-container {
+				gap: 8px;
+			}
+			.btn {
+				font-size: 1em;
+				padding: 10px 14px;
+			}
+			.top-bar h1 {
+				font-size: 1.5rem;
+				margin-bottom: 8px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="top-bar">
+		<h1>Grasshopper Social Club</h1>
+		<div class="buttons-container">
+			<button class="btn" onclick="location.href='tipos.html'">Derivados del hash</button>
+			<button class="btn" onclick="location.href='abc.html'">Blog Cannabis</button>
+			<button class="btn" onclick="location.href='Eventos.html'">Eventos</button>
+			<button class="btn" onclick="location.href='rules.html'">Normas</button>
+			<button class="btn" onclick="location.href='Sobredosis.html'">La pálida</button>
+			<button class="btn" onclick="location.href='Oraculo.html'">Portal Místico</button>
+		</div>
+	</div>
+	<!-- Google Translate -->
+	<div id="google_translate_element" style="position:absolute;top:18px;right:24px;z-index:100;"></div>
+	<script type="text/javascript">
+	// Función que se llamará cuando el script de Google Translate se cargue
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({
+			pageLanguage: 'es',
+			includedLanguages: 'en,fr,de,it,es',
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+			autoDisplay: false,
+			gaTrack: true,
+			gaId: 'UA-XXXXX-X'  // Reemplaza con tu ID de Google Analytics si lo tienes
+		}, 'google_translate_element');
+	}
+
+	// Cargar el script de Google Translate
+	function loadGoogleTranslate() {
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+		script.onerror = function() {
+			console.error('Error al cargar Google Translate');
+			document.getElementById('google_translate_element').innerHTML = 
+				'<select style="padding:8px 14px;border-radius:8px;font-weight:600;background:#fff;color:#222;border:1px solid #ccc;" ' +
+				'onchange="window.location.href=\'https://translate.google.com/translate?sl=es&tl=\'+this.value+\'&u=\'+encodeURIComponent(window.location.href)">' +
+				'<option value="es">Español</option>' +
+				'<option value="en">English</option>' +
+				'<option value="fr">Français</option>' +
+				'<option value="de">Deutsch</option>' +
+				'<option value="it">Italiano</option>' +
+				'</select>';
+		};
+		document.body.appendChild(script);
+	}
+
+	// Cargar Google Translate cuando la página esté lista
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', loadGoogleTranslate);
+	} else {
+		loadGoogleTranslate();
+	}
+	</script>
+	<div class="img-center">
+		<div style="position:relative;display:flex;justify-content:center;align-items:center;width:100%;">
+			<img src="grasshopperRasta.png" alt="Grasshopper Rasta" style="max-width:460px;width:350%;height:auto;border-radius:18px;box-shadow:none;background:none;" />
+			<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(35,96,40,0.85);color:#fff;padding:24px 32px;border-radius:16px;box-shadow:0 6px 18px rgba(4,7,5,0.25);font-size:1.08em;max-width:80%;text-align:center;backdrop-filter:blur(2px);">
+				¡Bienvenido a Grasshopper Social Club!<br>Un espacio seguro y educativo para compartir, aprender y disfrutar responsablemente.
+			</div>
+		</div>
+	</div>
+
+<div class="club-offers-wrapper">
+	<div class="club-offers">
+		<button class="section-button" onclick="toggleSection(this)">¿Qué ofrece el club?</button>
+		<div class="section-content">
+			<div class="content-text">
+				<ul>
+					<li>Zona de consumo segura y cómoda</li>
+					<li>Charlas y talleres educativos</li>
+					<li>Asesoría personalizada</li>
+					<li>Eventos sociales y culturales</li>
+					<li>Productos de calidad y variedad</li>
+					<li>Ambiente inclusivo y respetuoso</li>
+					<li>Red de apoyo y comunidad</li>
+				</ul>
+			</div>
+			<div class="club-images">
+				<img src="Cogollos.png" alt="Cogollos" style="max-width:250px;width:175%;height:auto;border-radius:18px;box-shadow:none;background:none;" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="club-offers-wrapper">
+	<div class="club-offers">
+		<button class="section-button" onclick="toggleSection(this)">Comidas y bebidas</button>
+		<div class="section-content">
+			<div class="content-text">
+				<ul style="list-style: none; padding: 0; margin: 0; columns: 2;">
+					<li>Coca-Cola 2$</li> 
+					<li>Redbull 2$</li>
+					<li>Monster 2$</li>
+					<li>Aloevera 2,5$</li>
+					<li>Nestea 2$</li>
+					<li>Agua con y sin gas 1,5$</li>
+					<li>Cerveza 2$</li>
+					<li>Patatas Ruffles 1,5$</li>
+					<li>Patatas Bits 1$</li>
+					<li>Chupa Chups 1,5$</li>
+					<li>Doritos 1$</li>
+					<li>Kit-Kat 1,5$</li>
+					<li>kinder Bueno 2$</li>
+				</ul>
+			</div>
+			<div class="club-images">
+				<img src="GrasshoperComer.png" alt="Grasshoper Comer" style="max-width:360px;width:280%;height:fit-content;border-radius:18px;box-shadow:none;background:none;transform: translateY(-60);" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="club-offers-wrapper">
+	<div class="club-offers">
+		<button class="section-button" onclick="toggleSection(this)">Ocio</button>
+		<div class="section-content">
+			<div class="content-text">
+				<ul>
+					<li>uno</li>
+					<li>Jenga</li>
+					<li>Barajas</li>
+					<li>parchis</li>
+					<li>ajedrez</li>
+					<li>playstation 5</li>
+					<li>Wii</li>
+					<li>Billar</li>
+					<li>Ping-Pong</li>
+				</ul>
+			</div>
+			<div class="club-images">
+				<img src="GrasshoperCartas.png" alt="Grasshoper Cartas" style="max-width:360px;width:230%;height:fit-content;border-radius:18px;box-shadow:none;background:none;transform: translateY(-50px);" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="club-offers-wrapper">
+	<div class="club-offers">
+		<button class="section-button" onclick="toggleSection(this)">Libreria</button>
+		<div class="section-content">
+			<div class="content-text">
+				<ul>
+					<li>0</li>
+					<li>Jenga</li>
+					<li>Barajas</li>
+					<li>parchis</li>
+					<li>ajedrez</li>
+					<li>playstation 5</li>
+					<li>Wii</li>
+				</ul>
+			</div>
+			<div class="club-images">
+				<img src="GrasshoperLibro.png" alt="Grasshoper Libro" style="max-width:360px;width:200%;height:fit-content;border-radius:18px;box-shadow:none;background:none;transform: translateY(-110px);" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+function toggleSection(button) {
+    const content = button.nextElementSibling;
+    const allContents = document.querySelectorAll('.section-content');
+    
+    // Close all other sections
+    allContents.forEach(section => {
+        if (section !== content && section.classList.contains('active')) {
+            section.classList.remove('active');
+        }
+    });
+    
+    // Toggle the clicked section
+    content.classList.toggle('active');
+}
+
+// Initialize sections as closed
+document.addEventListener('DOMContentLoaded', function() {
+    const contents = document.querySelectorAll('.section-content');
+    contents.forEach(content => {
+        content.classList.remove('active');
+    });
+});
+</script>
+
+<style>
+	.club-offers-wrapper {
+		max-width: 1100px;
+		margin: 48px auto 0 auto;
+		width: 100%;
+	}
+	.club-offers {
+		background: var(--panel);
+		border-radius: 16px;
+		box-shadow: 0 8px 26px rgba(0,0,0,0.6);
+		border: 1px solid rgba(255,255,255,0.03);
+		padding: 0;
+		width: 100%;
+		color: #e6efe9;
+		margin-bottom: 24px;
+	}
+	.section-button {
+		width: 100%;
+		background: var(--panel);
+		color: var(--accent);
+		border: none;
+		padding: 20px;
+		text-align: center;
+		font-size: 1.18em;
+		font-weight: bold;
+		cursor: pointer;
+		border-radius: 16px;
+		transition: background-color 0.3s;
+	}
+	.section-button:hover {
+		background: var(--glass);
+	}
+	.section-content {
+		display: none;
+		padding: 32px 28px;
+	}
+	.section-content.active {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 32px;
+	}
+	.content-text {
+		flex: 1;
+	}
+	.club-offers ul {
+		list-style: disc inside;
+		padding-left: 0;
+		margin: 0;
+	}
+	.club-offers li {
+		margin-bottom: 12px;
+		font-size: 1.08em;
+	}
+	.club-images {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	@media (max-width:900px) {
+		.section-content.active {
+			flex-direction: column;
+			gap: 18px;
+		}
+		.content-text, .club-images {
+			width: 100%;
+		}
+		.club-images img {
+			transform: none !important;
+		}
+	}
+</style>
+</body>
+</html>
