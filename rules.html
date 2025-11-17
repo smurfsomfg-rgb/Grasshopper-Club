@@ -141,18 +141,153 @@
         .rules-box {
             background: var(--panel);
             border-radius: 12px;
-            max-width: 600px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 32px 24px;
             box-shadow: 0 8px 26px rgba(0,0,0,0.6);
             border: 1px solid rgba(255,255,255,0.03);
         }
+        .rules-intro {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(46, 125, 50, 0.1));
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #d4f1d4;
+        }
+        .rule-section {
+            margin-bottom: 24px;
+        }
+        .section-title {
+            background: linear-gradient(90deg, rgba(39, 174, 96, 0.15), rgba(39, 174, 96, 0.05));
+            padding: 16px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #27ae60;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(39, 174, 96, 0.2);
+        }
+        .section-title:hover {
+            background: linear-gradient(90deg, rgba(39, 174, 96, 0.25), rgba(39, 174, 96, 0.1));
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.15);
+        }
+        .toggle-icon {
+            font-size: 1.3em;
+            transition: transform 0.3s ease;
+        }
+        .section-content {
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+        .section-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+        .section-content-inner {
+            padding: 20px;
+            background: rgba(25, 27, 29, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+        }
+        .subsection {
+            margin-bottom: 24px;
+        }
+        .subsection-title {
+            font-weight: 700;
+            color: #2db84a;
+            font-size: 1.02em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .subsection-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .subsection-list li {
+            padding: 12px 16px;
+            background: rgba(39, 174, 96, 0.08);
+            border-left: 3px solid #27ae60;
+            border-radius: 4px;
+            color: #d4e8d4;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        .subsection-text {
+            color: #d4e8d4;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        .subsection-text p {
+            margin: 0 0 12px 0;
+        }
         p {
-            font-size: 1.08em;
+            font-size: 0.98em;
             color: #e6efe9;
-            margin: 0 0 18px 0;
+            margin: 0 0 12px 0;
+        }
+        @media (max-width: 768px) {
+            .rules-box {
+                padding: 24px 16px;
+                margin: 20px 12px;
+            }
+            .section-title {
+                font-size: 1em;
+                padding: 14px 16px;
+            }
+            .subsection-title {
+                font-size: 0.98em;
+            }
+            .subsection-list li {
+                padding: 10px 12px;
+                font-size: 0.9em;
+            }
+            .top-bar h1 {
+                font-size: 1.5rem;
+            }
+            .buttons-container {
+                gap: 8px;
+            }
+            .btn {
+                padding: 10px 14px;
+                font-size: 0.9em;
+            }
         }
     </style>
+    <script>
+        function toggleSection(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.toggle-icon');
+            content.classList.toggle('collapsed');
+            icon.style.transform = content.classList.contains('collapsed') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const allSections = document.querySelectorAll('.section-content');
+            allSections.forEach(section => {
+                section.classList.add('collapsed');
+            });
+            const allIcons = document.querySelectorAll('.toggle-icon');
+            allIcons.forEach(icon => {
+                icon.style.transform = 'rotate(0deg)';
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -170,14 +305,328 @@
     </div>
     
     <div class="rules-box">
-        <p>1. Respeta a todos los miembros y visitantes del establecimiento.</p>
-        <p>2. Está prohibido fumar en áreas no designadas.</p>
-        <p>3. Mantén la limpieza y orden en todas las instalaciones.</p>
-        <p>4. El consumo de productos está permitido solo para mayores de edad.</p>
-        <p>5. Sigue las indicaciones del personal en todo momento.</p>
-        <p>6. No se permite la entrada de bebidas alcohólicas externas.</p>
-        <p>7. Cuida y respeta el mobiliario y los recursos del local.</p>
-        <p>8. Ante cualquier duda, consulta con el personal autorizado.</p>
+        <div class="rules-intro">
+            <p><strong>🏛️ Reglamento interno de un Club Social de Cannabis (España)</strong></p>
+            <p>El Club Social de Cannabis es una asociación privada, sin ánimo de lucro, constituida conforme a la Ley Orgánica 1/2002. Nuestro objetivo es promover el autoconsumo responsable, la reducción de riesgos y la información objetiva sobre cannabis.</p>
+        </div>
+
+        <!-- SECCIÓN 1.1 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.1 Naturaleza y fines del club</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <div class="subsection">
+                        <p class="subsection-text">El Club Social de Cannabis "X" (en adelante, el "Club") es una asociación privada, sin ánimo de lucro, constituida conforme a la Ley Orgánica 1/2002, de 22 de marzo, reguladora del Derecho de Asociación.</p>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">📋 Objetivos del Club:</div>
+                        <ul class="subsection-list">
+                            <li>La defensa de los derechos y libertades de las personas usuarias de cannabis adultas.</li>
+                            <li>La reducción de riesgos y daños asociados al consumo.</li>
+                            <li>La organización del autoconsumo compartido de cannabis entre sus personas socias, en un circuito cerrado y no lucrativo.</li>
+                            <li>La promoción de información objetiva sobre cannabis, salud y responsabilidad en el consumo.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <p class="subsection-text"><strong>✓ Importante:</strong> El Club no tiene finalidad comercial ni persigue beneficio económico para sus socios, directiva o terceros.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1.2 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.2 Acceso y admisión de socios</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <div class="subsection">
+                        <div class="subsection-title">✅ Requisitos para ser socio:</div>
+                        <ul class="subsection-list">
+                            <li>Personas mayores de 18 años (o de 21, si así lo decide el club como medida de seguridad adicional).</li>
+                            <li>Residentes en España (acreditable con DNI, NIE o similar).</li>
+                            <li>Personas consumidoras de cannabis o que manifiesten una intención responsable de consumirlo en un entorno privado y controlado.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">❌ Prohibida la admisión de:</div>
+                        <ul class="subsection-list">
+                            <li>Menores de edad.</li>
+                            <li>Personas que no acrediten su identidad o residencia.</li>
+                            <li>Personas que manifiesten fines comerciales, tráfico de drogas o cualquier actividad ilícita.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">📝 Procedimiento de admisión:</div>
+                        <ul class="subsection-list">
+                            <li>Presentación de documento identificativo.</li>
+                            <li>Cumplimentación de formulario de alta y aceptación del presente Reglamento interno.</li>
+                            <li>Declaración responsable sobre su consumo de cannabis y las cantidades aproximadas que prevé consumir mensualmente.</li>
+                            <li>Pago de la cuota de inscripción y/o cuota anual/mensual, si la hubiera.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1.3 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.3 Derechos de las personas socias</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <ul class="subsection-list">
+                        <li>Derecho a participar en las actividades del Club y a utilizar sus instalaciones conforme a las normas internas.</li>
+                        <li>Derecho a participar y votar en la Asamblea General, según los Estatutos, y a ser elegibles para cargos de la Junta Directiva.</li>
+                        <li>Derecho a recibir información sobre: Gestión económica del Club, Procedencia y calidad de los productos, Medidas de reducción de riesgos.</li>
+                        <li>Derecho a darse de baja en cualquier momento, mediante comunicación escrita.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1.4 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.4 Deberes de las personas socias</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <ul class="subsection-list">
+                        <li>Cumplir los Estatutos, el Reglamento interno y los acuerdos válidamente adoptados por los órganos del Club.</li>
+                        <li>Hacer un uso responsable del cannabis, evitando conductas que puedan perjudicar a terceros o la imagen del Club.</li>
+                        <li>No realizar ningún tipo de tráfico, venta o suministro de cannabis a terceras personas ajenas al Club, especialmente menores de edad.</li>
+                        <li>No introducir en el Club sustancias ilegales distintas del cannabis, armas u objetos peligrosos.</li>
+                        <li>Mantener una actitud respetuosa con el resto de socios, personal y vecinos.</li>
+                        <li>Abonar las cuotas que, en su caso, se establezcan y satisfacer las aportaciones económicas vinculadas al autoconsumo compartido.</li>
+                        <li>Guardar confidencialidad respecto a datos e identidad de las personas socias, salvo obligación legal.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1.5 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.5 Funcionamiento del autoconsumo compartido</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <div class="subsection">
+                        <div class="subsection-title">🌿 Organización colectiva:</div>
+                        <ul class="subsection-list">
+                            <li>El Club organizará el cultivo y/o adquisición de cannabis de forma colectiva y proporcional a las necesidades de sus socios.</li>
+                            <li>Se basará en las declaraciones de consumo responsable realizadas en el momento del alta.</li>
+                            <li>Se realizará un seguimiento periódico del consumo efectivo.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">📊 Límites de entrega:</div>
+                        <ul class="subsection-list">
+                            <li>La cantidad máxima diaria y/o mensual por socio será limitada y fijada por la Junta Directiva.</li>
+                            <li>Criterios: Uso personal y razonable, Prevención del desvío a terceros.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">✅ Condiciones de entrega:</div>
+                        <ul class="subsection-list">
+                            <li>Solo para socios al corriente de sus obligaciones.</li>
+                            <li>En el propio local o en el espacio autorizado por el Club.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">❌ Prohibido:</div>
+                        <ul class="subsection-list">
+                            <li>Entregar cannabis a no socios.</li>
+                            <li>Entregar o consumir cannabis por parte de personas con signos evidentes de intoxicación grave.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">🏷️ Información de producto:</div>
+                        <p class="subsection-text">Los productos de cannabis deberán ir acompañados de información básica: contenido aproximado de THC/CBD, forma recomendada de consumo y advertencias de salud.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1.6 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.6 Normas de uso de las instalaciones</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <div class="subsection">
+                        <div class="subsection-title">🔐 Acceso y seguridad:</div>
+                        <p class="subsection-text">El acceso al local del Club será exclusivamente para personas socias identificadas (y empleados del Club si los hubiere).</p>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">❌ Sustancias prohibidas:</div>
+                        <ul class="subsection-list">
+                            <li>Se prohibe el consumo de alcohol de alta graduación dentro del Club.</li>
+                            <li>Se prohibe el consumo de otras sustancias ilegales dentro del Club.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">🚬 Normas de consumo de cannabis:</div>
+                        <ul class="subsection-list">
+                            <li>Se realizará en las zonas habilitadas respetando normas de ventilación y salubridad.</li>
+                            <li>Se respetarán los derechos de los socios que no deseen exponerse al humo (p. ej., zonas diferenciadas).</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">🚫 Zonas prohibidas para fumar:</div>
+                        <ul class="subsection-list">
+                            <li>Baños, almacenes y zonas de trabajo.</li>
+                            <li>Vía pública frente a la entrada del Club si genera molestias o problemas de convivencia vecinal.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">🧹 Limpieza y orden:</div>
+                        <ul class="subsection-list">
+                            <li>Se debe mantener limpieza y orden en todas las instalaciones.</li>
+                            <li>Los residuos (colillas, envases, etc.) se depositarán en los recipientes adecuados.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">⏰ Horario:</div>
+                        <p class="subsection-text">El horario de apertura y cierre será el fijado por el Club, respetando la normativa municipal, especialmente en materia de ruidos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1.7 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.7 Cuotas y aportaciones</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <div class="subsection">
+                        <div class="subsection-title">💰 Tipos de cuotas:</div>
+                        <ul class="subsection-list">
+                            <li>Cuota de inscripción.</li>
+                            <li>Cuota periódica (mensual, anual).</li>
+                            <li>Aportaciones económicas vinculadas a la cobertura de costes: cultivo, adquisición, análisis de calidad, alquiler del local, personal, etc.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">ℹ️ Características de las cuotas:</div>
+                        <ul class="subsection-list">
+                            <li>No tendrán carácter lucrativo.</li>
+                            <li>Se calcularán para cubrir los gastos reales del Club y mantener su sostenibilidad, sin generar beneficios.</li>
+                            <li>Cualquier modificación importante deberá ser aprobada por la Asamblea General.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1.8 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.8 Régimen disciplinario</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <div class="subsection">
+                        <div class="subsection-title">⚠️ Infracciones leves:</div>
+                        <ul class="subsection-list">
+                            <li>Falta de respeto ocasional a otros socios o al personal del Club.</li>
+                            <li>Incumplimientos puntuales del Reglamento sin consecuencias graves.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">⚠️⚠️ Infracciones graves:</div>
+                        <ul class="subsection-list">
+                            <li>Consumir cannabis en zonas no autorizadas de forma reiterada.</li>
+                            <li>Presentarse en el Club bajo efectos evidentes de otras sustancias ilegales.</li>
+                            <li>Mostrar conductas agresivas o amenazantes.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">⛔ Infracciones muy graves:</div>
+                        <ul class="subsection-list">
+                            <li>Distribuir o vender cannabis obtenido a través del Club a terceros.</li>
+                            <li>Facilitar el acceso del Club a personas no socias, especialmente menores.</li>
+                            <li>Participar en actividades ilícitas relacionadas con drogas dentro o a través del Club.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">📋 Sanciones posibles:</div>
+                        <ul class="subsection-list">
+                            <li>Amonestación verbal o escrita.</li>
+                            <li>Suspensión temporal de derechos de socio.</li>
+                            <li>Expulsión definitiva del Club, con pérdida de la condición de socio.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">⚖️ Procedimiento sancionador:</div>
+                        <ul class="subsection-list">
+                            <li>Comunicación escrita de los hechos al socio afectado.</li>
+                            <li>Audiencia al socio afectado para que pueda defenderse.</li>
+                            <li>Resolución motivada y posibilidad de recurso ante la Asamblea, según Estatutos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 1.9 -->
+        <div class="rule-section">
+            <div class="section-title" onclick="toggleSection(this)">
+                <span>1.9 Protección de datos y confidencialidad</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="section-content collapsed">
+                <div class="section-content-inner">
+                    <div class="subsection">
+                        <div class="subsection-title">🔒 Marco legal:</div>
+                        <p class="subsection-text">El Club tratará los datos personales de sus socios conforme al Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales.</p>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">📊 Finalidades del tratamiento:</div>
+                        <ul class="subsection-list">
+                            <li>Gestión de altas/bajas de socios.</li>
+                            <li>Control interno del consumo compartido.</li>
+                            <li>Comunicación de información relevante del Club.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">✓ Derechos de los socios (RGPD):</div>
+                        <ul class="subsection-list">
+                            <li>Acceso a los datos personales que el Club tiene sobre ti.</li>
+                            <li>Rectificación de datos inexactos o incompletos.</li>
+                            <li>Supresión de tus datos personales.</li>
+                            <li>Oposición al tratamiento de tus datos.</li>
+                            <li>Limitación del tratamiento de tus datos.</li>
+                            <li>Portabilidad de tus datos.</li>
+                        </ul>
+                    </div>
+                    <div class="subsection">
+                        <div class="subsection-title">🔐 Compromiso de confidencialidad:</div>
+                        <p class="subsection-text">El Club se compromete a <strong>no ceder datos personales a terceros</strong>, salvo obligación legal establecida por las autoridades competentes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+            <p style="font-size: 0.9em; color: #9aa5a1; margin: 0;">Última actualización: 17 de noviembre de 2025</p>
+        </div>
     </div>
 </body>
 </html>
